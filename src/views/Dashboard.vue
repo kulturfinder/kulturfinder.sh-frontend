@@ -139,7 +139,7 @@
             <ks-card
               v-if="museumsCardEnabled && tenant === 'sh'"
               :route="`/${$route.params.locale}/museumscard`"
-              :image-source="require(`@/assets/images/logos/museumsCard2024greenBackground.png`)"
+              :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_grünbeige.png`)"
               :small="(tenant === 'sh')"
               :museumscard-small="true"
               data-cy="museumsCardKachel"
