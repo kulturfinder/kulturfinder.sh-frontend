@@ -43,7 +43,7 @@ export default {
       if (msg.origin !== 'https://kultursphaere.sh') return
 
       if (msg.data === 'back-button-clicked') {
-        this.$router.push({ name: 'details', query: this.filter, params: { actId: this.actId, listType: this.listType, locale: this.$route.params.locale } })
+        this.$router.replace({ name: 'details', query: this.filter, params: { actId: this.actId, listType: this.listType, locale: this.$route.params.locale } })
       }
     }
   },
