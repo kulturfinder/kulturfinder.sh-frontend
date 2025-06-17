@@ -47,6 +47,7 @@ import IconMultimedia from './components/icons/IconMultimedia.vue'
 import IconVideo from './components/icons/IconVideo.vue'
 import IconVideos from './components/icons/IconVideos.vue'
 import IconVirtualReality from './components/icons/IconVirtualReality.vue'
+import IconBremenBremerhafen from './components/icons/IconBremenBremerhafen.vue'
 
 Vue.component('IconBase', IconBase)
 Vue.component('IconArrowLeft', IconArrowLeft)
@@ -96,3 +97,4 @@ Vue.component('IconMultimedia', IconMultimedia)
 Vue.component('IconVideo', IconVideo)
 Vue.component('IconVideos', IconVideos)
 Vue.component('IconVirtualReality', IconVirtualReality)
+Vue.component('IconBremenBremerhafen', IconBremenBremerhafen)
