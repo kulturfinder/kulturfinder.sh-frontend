@@ -139,7 +139,7 @@
             <ks-card
               v-if="museumsCardEnabled && tenant === 'sh'"
               :route="`/${$route.params.locale}/museumscard`"
-              :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_grünbeige.png`)"
+              :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png`)"
               :small="(tenant === 'sh')"
               :museumscard-small="true"
               data-cy="museumsCardKachel"
@@ -216,17 +216,17 @@
 </template>
 
 <script>
-import KsList from '@/components/institutions/List.vue'
 import SearchBar from '@/components/common/SearchBar.vue'
-import KsCarousel from '@/components/dashboard/Carousel.vue'
 import KsCard from '@/components/dashboard/Card.vue'
+import KsCarousel from '@/components/dashboard/Carousel.vue'
+import KsList from '@/components/institutions/List.vue'
 import KsHeader from '@/components/layout/Header'
+import i18n from '@/i18n'
+import ScrollPosition from '@/mixins/scrollposition'
+import detectRTC from 'detectrtc'
 import { mapGetters } from 'vuex'
 import LocaleChanger from '../components/dashboard/LocaleChanger'
 import SignLanguageModal from '../components/dashboard/SignLanguageModal.vue'
-import ScrollPosition from '@/mixins/scrollposition'
-import detectRTC from 'detectrtc'
-import i18n from '@/i18n'
 
 export default {
   name: 'Dashboard',
