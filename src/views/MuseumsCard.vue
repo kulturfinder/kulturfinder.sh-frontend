@@ -28,7 +28,7 @@
         <b-container class="text-center">
           <img
             id="museumscard"
-            src="@/assets/images/logos/museumsCard2024withDate.png"
+            src="@/assets/images/logos/2025_museumscard_logo_datum_lilabeige.png"
             class="museumscard-logo"
             alt="Museumscard"
             data-cy="museumsCardLogo"
@@ -42,7 +42,7 @@
                   class="ks-card"
                   :href="'https://www.meine-museumscard.de'" target="_blank"
                   :text="$t('museumscard.tickets')"
-                  :image-source="require(`@/assets/images/logos/museumsCard2024greenBackground.png`)"
+                  :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png`)"
                   :museumscard="true"
                   data-cy="museumsCardKachel"
                 />
