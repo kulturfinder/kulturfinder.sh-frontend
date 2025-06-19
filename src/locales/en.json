@@ -11,8 +11,8 @@
     "contact": "Contact",
     "website": "Website",
     "email": "Email",
-    "www": "www.kulturfinder.sh",
-    "link": "kulturfinder.sh",
+    "www": "www.kulturfinder.bremen.de",
+    "link": "kulturfinder.bremen.de",
     "mailto": "info@kultursphaere.sh",
     "favorites": "Favorites",
     "filters": "Filters",
@@ -38,10 +38,10 @@
     "loading": "Loading culture..."
   },
   "SEO":{
-    "title": "kulturfinder.sh",
-    "dashboardTitle": "kulturfinder.sh - Culture in Your Hands",
-    "description": "The kulturfinder.sh is a new app that enables users to find cultural institutions in Schleswig-Holstein on their mobile devices. It uses to geodata to show users a map of nearby insitutions. A photo and description are included for  each institution as well as the address and information about other services.",
-    "commonKeywords": "Kulturfinder, culture, app, Schleswig-Holstein, Kultursphäre, digital, digitisation, Living Images, kulturfinder.sh, cultural institution"
+    "title": "kulturfinder.bremen.de",
+    "dashboardTitle": "kulturfinder.bremen.de - Culture in Your Hands",
+    "description": "The kulturfinder.bremen.de is a new app that enables users to find cultural institutions in Bremen on their mobile devices. It uses to geodata to show users a map of nearby insitutions. A photo and description are included for  each institution as well as the address and information about other services.",
+    "commonKeywords": "Kulturfinder, culture, app, Bremen, Kultursphäre, digital, digitisation, Living Images, kulturfinder.bremen.de, cultural institution"
   },
   "locales": {
     "de": {
@@ -56,7 +56,7 @@
   },
   "navbar": {
     "aboutUs": "About us",
-    "logo": "Logo of kulturfinder.sh",
+    "logo": "Logo of kulturfinder.bremen.de",
     "settings": "Settings",
     "saveAsFavorite": "Save as favourite",
     "start": "Start",
@@ -143,7 +143,7 @@
     "positionRelatedDataProcessing": "When in use, the app can access your location if you have granted it permission to do so in your device’s settings. Different technology is used to determine a person's location, e.g. IP address or GPS data. This data is processed exclusively on your device.",
     "accessibility": {
       "declarationsHeadline": "Accessibility statement",
-      "LBGG_BITV": "The kulturfinder.sh team makes every effort to ensure that the kulturfinder.sh website is accessible to everyone in compliance with the Act on Equal Treatment for people with disabilities in Schleswig-Holstein (LBGG) and the Barrier-Free Informational Technology Ordinance (BITV). This accessibility statement applies to the entire web presence of kulturfinder.sh.",
+      "LBGG_BITV": "The kulturfinder.bremen.de team makes every effort to ensure that the kulturfinder.bremen.de website is accessible to everyone in compliance with the Act on Equal Treatment for people with disabilities in Schleswig-Holstein (LBGG) and the Barrier-Free Informational Technology Ordinance (BITV). This accessibility statement applies to the entire web presence of kulturfinder.bremen.de.",
       "currentStatusHeadline": "Status of compliance with requirements",
       "currentStatus": "The website is partially compliant with the BITV. “Good accessibility” is guaranteed. Deficiencies were found in the accessibility of the following areas; these deficiencies are not compatible with the legal guidelines:",
       "faults": {
@@ -178,7 +178,7 @@
     "choice": "Selected licence"
   },
   "noData": {
-    "welcome": "Welcome to kulturfinder.sh!",
+    "welcome": "Welcome to kulturfinder.bremen.de!",
     "notDownloadable": "Unfortunately, our database is currently offline. We would kindly ask for your patience. Please try again later. We're working on it!",
     "reload": "Reload"
   },
@@ -208,7 +208,7 @@
       "step2": "2. Then click on the blue button."
     },
     "mac": {
-      "step1": "1. Open the menu and click on 'Install kulturfinder.sh...' or click on the plus icon on the address bar..",
+      "step1": "1. Open the menu and click on 'Install kulturfinder.bremen.de...' or click on the plus icon on the address bar..",
       "step2": "2. Then click on the blue button."
     }
   },
@@ -220,7 +220,7 @@
     "benefit2": "Distance to all destinations",
     "enableGPS": "Enable GPS",
     "howToHandle": "Location services are not enabled on your device.",
-    "howToHandle2" : "Please check your device settings and refresh this website to use the location services on kulturfinder.sh."
+    "howToHandle2" : "Please check your device settings and refresh this website to use the location services on kulturfinder.bremen.de."
   },
   "noNetwork": {
     "title": "No internet connection",
@@ -250,7 +250,7 @@
     "noDescription": "We're sorry. The description is not available in all languages yet. We're working on it.",
     "favorite": "Favorite",
     "share": "Share",
-    "shareSubject": "Check out what I have found for you in the culture finder app kulturfinder.sh:",
+    "shareSubject": "Check out what I have found for you in the culture finder app kulturfinder.bremen.de:",
     "showOnMap": "Display on map",
     "routeViaNavigationApp": "Show route in the map application",
     "socialMedia": "Social networks",
@@ -307,7 +307,7 @@
       "sd0025": "Reformation Day"
     },
     "feedback": "Feedback",
-    "feedbackIntro": "Have you got any comments or feedback about the app? Please contact our team at kulturfinder.sh. We look forward to hearing from you!",
+    "feedbackIntro": "Have you got any comments or feedback about the app? Please contact our team at kulturfinder.bremen.de. We look forward to hearing from you!",
     "feedbackInstitutionHeadline": "Would you like to contact the institution directly?",
     "feedbackInstitutionText": "For questions or enquiries, please contact the institution. You will find the details in the 'contact' section on the institution's page.",
     "feedbackWrongOpeningHoursHeadline": "Wrong opening hours?",
