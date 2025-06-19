@@ -431,9 +431,7 @@
                   class="info"
                   v-if="institution.openingTimes.description"
                 >
-                  <p v-if="institution.openingTimes.description">
-                    {{ institution.openingTimes.description }}
-                  </p>
+                  <p v-if="institution.openingTimes.description" v-html="institution.openingTimes.description"/>
                 </b-alert>
 
                 <p class="info-text" v-if="institution.openingTimes.week">
@@ -536,23 +534,23 @@
 </template>
 
 <script>
+import KsCarousel from '@/components/details/Carousel.vue'
+import DigitalServices from '@/components/details/DigitalServices.vue'
+import FeedbackModal from '@/components/details/FeedbackModal.vue'
+import InfoDetail from '@/components/details/InfoDetail.vue'
+import MuseumsCard from '@/components/details/MuseumsCard.vue'
+import NahShLink from '@/components/details/NahShLink.vue'
+import NavigatorShare from '@/components/details/NavigatorShare.vue'
 import SkeletonScreen from '@/components/details/SkeletonScreen.vue'
 import SocialLinks from '@/components/details/SocialLinks.vue'
-import DigitalServices from '@/components/details/DigitalServices.vue'
-import NahShLink from '@/components/details/NahShLink.vue'
+import IconCalender from '@/components/icons/IconCalender.vue'
 import KsHeader from '@/components/layout/Header.vue'
-import InfoDetail from '@/components/details/InfoDetail.vue'
-import KsCarousel from '@/components/details/Carousel.vue'
-import NavigatorShare from '@/components/details/NavigatorShare.vue'
-import FeedbackModal from '@/components/details/FeedbackModal.vue'
-import MuseumsCard from '@/components/details/MuseumsCard.vue'
 import Navigation from '@/mixins/navigation'
 import ScrollPosition from '@/mixins/scrollposition'
-import { mapGetters, mapState } from 'vuex'
-import moment from 'moment'
 import detectRTC from 'detectrtc'
+import moment from 'moment'
 import { lt } from 'semver'
-import IconCalender from '@/components/icons/IconCalender.vue'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Details',
