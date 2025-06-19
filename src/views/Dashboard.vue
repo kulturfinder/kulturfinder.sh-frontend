@@ -91,6 +91,14 @@
         <b-container class="ks-card-container pt-3 pb-2">
           <b-row class="justify-content-center">
             <ks-card
+              v-if="tenant === 'sh'"
+              :route="`/${$route.params.locale}/institutions/map?isFavorite=false`"
+              :text="$t('common.map')"
+              icon="IconMap"
+              data-cy="mapCard"
+            />
+            <ks-card
+              v-if="tenant === 'hb'"
               :route="`/${$route.params.locale}/institutions/map?isFavorite=false`"
               :text="$t('common.map')"
               icon="IconBremenBremerhafen"
