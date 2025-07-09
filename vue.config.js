@@ -140,6 +140,20 @@ module.exports = {
           sizes: '1024x1024'
         }
       ],
+      "screenshots": [
+        {
+          "src": "/img/screenshots/home-mobile.png",
+          "sizes": "360x640",
+          "type": "image/png",
+          "form_factor": "narrow"  // for mobile
+        },
+        {
+          "src": "/img/screenshots/home-desktop.png",
+          "sizes": "1280x720",
+          "type": "image/png",
+          "form_factor": "wide"  // for desktop
+        }
+      ],
       start_url: '/',
       display: 'standalone',
       orientation: 'portrait-primary',
