@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import { some } from 'lodash'
 import { localforageFavorites } from '@/localforage'
 import router from '@/router'
+import { some } from 'lodash'
+import Vue from 'vue'
 
 /** @typedef InstitutionsDtoElement
  * @property {number} id
@@ -274,12 +274,14 @@ function migrateOpeningHours(dto) {
 }
 
 export class ApiServiceDataport {
-  async fetchInstitutions(locale) {
+  async fetchInstitutions(locale, states) {
+    console.log(states)
     const response = await Vue.http.get(`${URL}/Institute/GetInstitutes/VisibleInstitutes/BasicInformation`,
       {
-        params: { 'language': locale },
+        params: { 'language': locale, 'states': states.toString() },
         timeout: TIMEOUT
       })
+    console.log(response)
     /** @type InstitutionsDto */
     const data = await response.json()
     const favorites = await localforageFavorites.keys()
