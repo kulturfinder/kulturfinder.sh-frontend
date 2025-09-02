@@ -14,7 +14,14 @@ class InstitutionService {
   }
 
   async getInstitutions() {
-    return apiService.fetchInstitutions(i18n.locale)
+    const states = []
+    if (process.env.VUE_APP_TENANT === 'sh') {
+      states.push('Schleswig_Holstein')
+    }
+    if (process.env.VUE_APP_TENANT === 'hb') {
+      states.push('Bremen')
+    }
+    return apiService.fetchInstitutions(i18n.locale, states)
   }
 
   async getInstitution(id) {
