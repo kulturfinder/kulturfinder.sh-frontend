@@ -11,8 +11,8 @@
     "contact": "Kontakt",
     "website": "Webseite",
     "email": "Email",
-    "www": "www.kulturfinder.sh",
-    "link": "kulturfinder.sh",
+    "www": "www.kulturfinder.bremen.de",
+    "link": "kulturfinder.bremen.de",
     "mailto": "info@kultursphaere.sh",
     "favorites": "Favoriten",
     "filters": "Filter",
@@ -38,10 +38,10 @@
     "loading": "Lädt Kultur..."
   },
   "SEO":{
-    "title": "kulturfinder.sh",
-    "dashboardTitle": "kulturfinder.sh - Kultur in deiner Hand",
-    "description": "Der kulturfinder.sh ist eine neue App, die es den Nutzer:innen ermöglicht, mobil auf ihrem Smartphone Kulturinstitutionen in ganz Schleswig-Holstein zu finden. Geobasiert werden Kultureinrichtungen im Umkreis des Standortes des Nutzers auf einer Landkarte angezeigt. Zu jeder Institution gibt es zudem ein Foto sowie eine Beschreibung, die Adresse und weitere Angebote.",
-    "commonKeywords": "Kulturfinder, Kultur, App, Schleswig-Holstein, Kultursphäre, Digitalisierung, Living Images, Schietwetter, kulturfinder.sh, Kulturinstitution"
+    "title": "kulturfinder.bremen.de",
+    "dashboardTitle": "kulturfinder.bremen.de - Kultur in deiner Hand",
+    "description": "Der kulturfinder.bremen.de ist eine neue App, die es den Nutzer:innen ermöglicht, mobil auf ihrem Smartphone Kulturinstitutionen in ganz Bremen zu finden. Geobasiert werden Kultureinrichtungen im Umkreis des Standortes des Nutzers auf einer Landkarte angezeigt. Zu jeder Institution gibt es zudem ein Foto sowie eine Beschreibung, die Adresse und weitere Angebote.",
+    "commonKeywords": "Kulturfinder, Kultur, App, Bremen, Kultursphäre, Digitalisierung, Living Images, Schietwetter, kulturfinder.bremen.de, Kulturinstitution"
   },
   "locales": {
     "de": {
@@ -144,7 +144,7 @@
     "positionRelatedDataProcessing": "Innerhalb der App ist es möglich Ihren Standort bestimmen zu lassen, wenn sie dies in den Einstellungen ihres Endgerätes zugelassen haben. Für die Standortbestimmung werden verschiedene Technologien verwendet, wie bspw. IP-Adresse und GPS Daten. Diese Daten werden ausschließlich auf Ihrem Endgerät verarbeitet.",
     "accessibility": {
       "declarationsHeadline": "Erklärung zur Barrierefreiheit",
-      "LBGG_BITV": "Das Team des kulturfinder.sh bemüht sich, die Website kulturfinder.sh im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.sh",
+      "LBGG_BITV": "Das Team des kulturfinder.bremen.de bemüht sich, die Website kulturfinder.bremen.de im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.bremen.de",
       "currentStatusHeadline": "Stand der Vereinbarkeit mit den Anforderungen",
       "currentStatus": "Die Website ist mit der BITV teilweise vereinbar. Die „gute Zugänglichkeit“ ist sichergestellt.\nBei folgenden Inhalten wurden beim Barrierefreiheitstest Mängel festgestellt und sind nicht vereinbar mit den genannten Rechtsvorschriften:",
       "faults": {
@@ -179,7 +179,7 @@
     "choice": "Gewählte Lizenz"
   },
   "noData": {
-    "welcome": "Willkommen beim kulturfinder.sh!",
+    "welcome": "Willkommen beim kulturfinder.bremen.de!",
     "notDownloadable": "Leider konnten wir notwendige Daten nicht von unserem Kooperationspartner herunterladen. Bitte haben Sie ein wenig Geduld, es wird bereits an einer Lösung gearbeitet.",
     "reload": "Erneut laden"
   },
@@ -208,7 +208,7 @@
       "step2": "2. Abschließend klicken Sie auf die blaue Schaltfläche."
     },
     "mac": {
-      "step1": "1. Öffnen Sie das Menü und klicken auf 'kulturfinder.sh installieren...' oder klicken Sie direkt auf das Plus-Symbol in der Adresszeile.",
+      "step1": "1. Öffnen Sie das Menü und klicken auf 'kulturfinder.bremen.de installieren...' oder klicken Sie direkt auf das Plus-Symbol in der Adresszeile.",
       "step2": "2. Abschließend klicken Sie auf die blaue Schaltfläche."
     }
   },
@@ -220,7 +220,7 @@
     "benefit2": "Entfernung zu allen Zielen",
     "enableGPS": "GPS aktivieren",
     "howToHandle": "Ihre Geräteeinstellungen blockieren den Zugriff auf ihren GPS-Standort.",
-    "howToHandle2" : "Prüfen sie die Einstellungen ihres Gerätes und aktualisieren sie die Website, um die Standortfunktion vom kulturfinder.sh nutzen zu können."
+    "howToHandle2" : "Prüfen sie die Einstellungen ihres Gerätes und aktualisieren sie die Website, um die Standortfunktion vom kulturfinder.bremen.de nutzen zu können."
   },
   "noNetwork": {
     "title": "Kein Internet",
@@ -249,7 +249,7 @@
     "noDescription": "Es tut uns leid. Zu dieser Institution fehlt die Beschreibung. Wir arbeiten dran.",
     "favorite": "Favorit",
     "share": "Teilen",
-    "shareSubject": "Schau einmal, was ich für dich in der kulturfinder.sh-App gefunden habe:",
+    "shareSubject": "Schau einmal, was ich für dich in der kulturfinder.bremen.de-App gefunden habe:",
     "showOnMap": "Auf Karte anzeigen",
     "routeViaNavigationApp": "Anfahrt in Karten-Anwendung öffnen",
     "socialMedia": "Soziale Netzwerke",
@@ -306,7 +306,7 @@
       "sd0025": "Reformationstag"
     },
     "feedback": "Feedback",
-    "feedbackIntro": "Haben Sie Wünsche oder Kritik? Melden Sie sich gerne beim Team vom kulturfinder.sh. Wir freuen uns über Feedback!",
+    "feedbackIntro": "Haben Sie Wünsche oder Kritik? Melden Sie sich gerne beim Team vom kulturfinder.bremen.de. Wir freuen uns über Feedback!",
     "feedbackInstitutionHeadline": "Sie möchten direkt mit einer Institution in Kontakt treten?",
     "feedbackInstitutionText": "Melden sie sich bei Anliegen und Fragen bitte direkt bei der Institution. Informationen hierzu finden sie unter 'Kontakt' auf der Seite der Institution.",
     "feedbackWrongOpeningHoursHeadline": "Öffnungszeiten falsch?",

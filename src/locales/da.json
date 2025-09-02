@@ -11,8 +11,8 @@
     "contact": "Kontakt",
     "website": "Hjemmeside",
     "email": "Email",
-    "www": "www.kulturfinder.sh",
-    "link": "kulturfinder.sh",
+    "www": "www.kulturfinder.bremen.de",
+    "link": "kulturfinder.bremen.de",
     "mailto": "info@kultursphaere.sh",
     "favorites": "Bogmærker",
     "filters": "Filtrene",
@@ -38,10 +38,10 @@
     "loading": "Belaster kultur..."
   },
   "SEO":{
-    "title": "kulturfinder.sh",
-    "dashboardTitle": "kulturfinder.sh - Kultur i din hånd",
-    "description": "The kulturfinder.sh app has all the information about culture in Schleswig-Holstein that you need. With more than 300 cultural institutions featured, you can have a look into descriptions, opening-times or digital services of each institution.",
-    "commonKeywords": "Kulturfinder, culture, app, Schleswig-Holstein, Kultursphäre, digital, Living Images, kulturfinder.sh, cultural institutions"
+    "title": "kulturfinder.bremen.de",
+    "dashboardTitle": "kulturfinder.bremen.de - Kultur i din hånd",
+    "description": "The kulturfinder.bremen.de app has all the information about culture in Bremen that you need. With more than 300 cultural institutions featured, you can have a look into descriptions, opening-times or digital services of each institution.",
+    "commonKeywords": "Kulturfinder, culture, app, Bremen, Kultursphäre, digital, Living Images, kulturfinder.bremen.de, cultural institutions"
   },
   "locales": {
     "de": {
@@ -56,7 +56,7 @@
   },
   "navbar": {
     "aboutUs": "Om os",
-    "logo": "kulturfinder.sh-logo",
+    "logo": "kulturfinder.bremen.de-logo",
     "settings": "Indstillinger",
     "saveAsFavorite": "Gem som bogmærke",
     "start": "Start",
@@ -66,7 +66,7 @@
     "noGPS": "GPS fordele"
   },
   "about": {
-    "description": "kultursphäre.sh er et projekt hos Institut for Media på Fachhochschule Kiel. Projektet støttes af Ministeriet for uddannelse, videnskab, forskning og kultur i Slesvig-Holstén – i samarbejde med digiCULT og det Slesvig-Holsténske Delstatsbibliotek.",
+    "description": "kulturfinder.bremen.de er et projekt hos Institut for Media på Fachhochschule Kiel. Projektet støttes af Ministeriet for uddannelse, videnskab, forskning og kultur i Slesvig-Holstén – i samarbejde med digiCULT og det Slesvig-Holsténske Delstatsbibliotek.",
     "leadingLegal": "Ledelse & kolofon",
     "imprint": "Aftryk",
     "address0": "Prof. Dr. Tobias Hochscherf",
@@ -143,7 +143,7 @@
     "positionRelatedDataProcessing": "I forbindelse med denne app er det muligt at bestemme brugerens geografiske position, såfremt brugeren har givet tilladelse til det i indstillingerne på sin terminal. Til positionsbestemmelsen anvendes en række teknologier, som f. eks. IP-adresse og GPS-data. Disse data anvendes udelukkende på brugerens terminal.",
     "accessibility": {
       "declarationsHeadline": "Erklärung zur Barrierefreiheit",
-      "LBGG_BITV": "Das Team des kulturfinder.sh bemüht sich, die Website kulturfinder.sh im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.sh",
+      "LBGG_BITV": "Das Team des kulturfinder.bremen.de bemüht sich, die Website kulturfinder.bremen.de im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.bremen.de",
       "currentStatusHeadline": "Stand der Vereinbarkeit mit den Anforderungen",
       "currentStatus": "Die Website ist mit der BITV teilweise vereinbar. Die „gute Zugänglichkeit“ ist sichergestellt.\nBei folgenden Inhalten wurden beim Barrierefreiheitstest Mängel festgestellt und sind nicht vereinbar mit den genannten Rechtsvorschriften:",
       "faults": {
@@ -178,7 +178,7 @@
     "choice": "Udvalgt licens"
   },
   "noData": {
-    "welcome": "Willkommen beim kulturfinder.sh!",
+    "welcome": "Willkommen beim kulturfinder.bremen.de!",
     "notDownloadable": "Leider konnten wir notwendige Daten nicht von unserem Kooperationspartner herunterladen. Bitte haben Sie ein wenig Geduld, es wird bereits an einer Lösung gearbeitet.",
     "reload": "Erneut laden"
   },
@@ -208,7 +208,7 @@
       "step2": "2. Click on the blue button."
     },
     "mac": {
-      "step1": "1. Open the menu and click on 'install kulturfinder.sh...' or directly click on the plus icon in the address bar.",
+      "step1": "1. Open the menu and click on 'install kulturfinder.bremen.de...' or directly click on the plus icon in the address bar.",
       "step2": "2. Click on the blue button."
     }
   },
@@ -220,7 +220,7 @@
     "benefit2": "Afstand til alle destinationer",
     "enableGPS": "GPS aktivere",
     "howToHandle": "Your location for this site is blocked.",
-    "howToHandle2" : "Please check the settings of your device and refresh this website, to use the location functions of kulturfinder.sh"
+    "howToHandle2" : "Please check the settings of your device and refresh this website, to use the location functions of kulturfinder.bremen.de"
   },
   "noNetwork": {
     "title": "No internet connection",
@@ -307,7 +307,7 @@
       "sd0025": "Reformationsdag (31. oktober)"
     },
     "feedback": "Feedback",
-    "feedbackIntro": "Any comments, ideas, or feedback about the app? Please contact our team at kulturfinder.sh. We would very much appreciate to hear from you!",
+    "feedbackIntro": "Any comments, ideas, or feedback about the app? Please contact our team at kulturfinder.bremen.de. We would very much appreciate to hear from you!",
     "feedbackInstitutionHeadline": "Would you like to contact the institution directly?",
     "feedbackInstitutionText": "For questions or inqueries concerning the institution, please check out the 'contact' section for each institution.",
     "feedbackWrongOpeningHoursHeadline": "Åbningstider forkerte?",
