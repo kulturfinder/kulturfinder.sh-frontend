@@ -144,12 +144,18 @@
 		"positionRelatedDataProcessing": "Innerhalb der App ist es möglich Ihren Standort bestimmen zu lassen, wenn sie dies in den Einstellungen ihres Endgerätes zugelassen haben. Für die Standortbestimmung werden verschiedene Technologien verwendet, wie bspw. IP-Adresse und GPS Daten. Diese Daten werden ausschließlich auf Ihrem Endgerät verarbeitet.",
 		"accessibility": {
 			"declarationsHeadline": "Erklärung zur Barrierefreiheit",
-			"LBGG_BITV": "Das Team des kulturfinder.sh bemüht sich, die Website kulturfinder.sh im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.sh",
+			"LBGG_BITV": "Das Team des kulturfinder.sh ist bemüht, ihre Website im Einklang mit § 11 Absatz 1 Landesbehindertengleichstellungsgesetz (LBGG) sowie den Anforderungen der Barrierefreiheit gemäß § 13 Absatz 3 LBGG barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.sh",
 			"currentStatusHeadline": "Stand der Vereinbarkeit mit den Anforderungen",
 			"currentStatus": "Die Website ist mit der BITV teilweise vereinbar. Die „gute Zugänglichkeit“ ist sichergestellt.\nBei folgenden Inhalten wurden beim Barrierefreiheitstest Mängel festgestellt und sind nicht vereinbar mit den genannten Rechtsvorschriften:",
 			"faults": {
-				"0": "Konsistenz der Navigation: Die Navigation ist teilweise nicht einheitlich gestaltet und schränkt das Verständnis ein.",
-				"1": "Einfache Sprache: Erklärungen der Seite und dessen Bedienung sind nicht in einfacher Sprache verfügbar."
+				"0": "Nicht-Text-Inhalt: Einige Grafiken verfügen nicht über einen alternativen Text, der den Inhalt und Zweck des Bildes beschreibt.",
+				"1": "Untertitel: Einige Videos verfügen nicht über Untertitel für gehörlose oder schwerhörige Nutzer.",
+				"2": "Info und Beziehung: Einige Textelemente sind nicht korrekt ausgezeichnet, was es für assistive Technologien schwierig macht, die Struktur und den Zusammenhang des Inhalts zu verstehen.",
+				"3": "Kontrast: Einige Textelemente weisen nicht den erforderlichen Kontrast zum Hintergrund auf.",
+				"4": "Tastatur: Einige interaktive Elemente sind nicht vollständig mit der Tastatur bedienbar.",
+				"5": "Pausieren, stoppen, ausblenden: Automatisch abgespielte Videos können nicht per Tastatur gesteuert werden.",
+				"6": "Linkzweck: Navigationsuntermenüs geben teilweise nicht die richtigen Hinweise zum Linkzweck aus.",
+				"7": "Fehlerkennzeichnung: Einige Formularelemente verfügen nicht über eine korrekte Fehlerkennzeichnung und Pflichteingabenkennzeichnung."
 			},
 			"correcting": "Eine Verbesserung der Zugänglichkeit ist weithin geplant.",
 			"declarationCreatedHeadline": "Erstellung dieser Erklärung zur Barrierefreiheit",
