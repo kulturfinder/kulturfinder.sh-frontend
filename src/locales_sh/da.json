@@ -1,0 +1,394 @@
+{
+  "cityOfLiterature": {
+    "shortTitle": "City of Literature",
+    "longTitle": "Bremen UNESCO City of Literature",
+    "siteDescription": "Den 31. oktober inkluderede UNESCO Bremen i det internationale netværk af kreative byer og tildelte den titlen \"City of Literature\". Det gør Bremen til den syvende kreative by i Tyskland, der bliver hædret af verdenskulturorganisationen.",
+    "bremenWebsite": "bremen.de",
+    "intro": "Siden 31. oktober 2023 har det stået klart, at Bremen permanent kan bære UNESCO-titlen \"City of Literature\" og dermed tilhører både det hæderkronede \"City of Literature\"-netværk og det langt større Creative Cities Network (der består af omkring 350 byer verden over).",
+    "background": "UNESCO's Creative Cities-program har eksisteret siden 2004 og forbinder i dag byer over hele verden, som deler deres erfaringer, strategier, ideer og god praksis inden for moderne kunst og kultur. Medlemmerne af netværket er ekspertisecentre inden for et af syv områder: film, musik, design, gastronomi, mediekunst, kunsthåndværk og litteratur."
+  },
+  "common": {
+    "contact": "Kontakt",
+    "website": "Hjemmeside",
+    "email": "Email",
+    "www": "www.kulturfinder.sh",
+    "link": "kulturfinder.sh",
+    "mailto": "info@kultursphaere.sh",
+    "favorites": "Bogmærker",
+    "filters": "Filtrene",
+    "categories": "Kategorier",
+    "tags": "Tilbud",
+    "map": "Kort",
+    "route": "Tilkørsel",
+    "details": "Detaljer",
+    "list": "Liste",
+    "museums-card": "MuseumsCard",
+    "distance": "Afstand",
+    "~": " ~",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "youtube": "YouTube",
+    "vimeo": "Vimeo",
+    "close": "Lukke",
+    "open": "Åbne",
+    "back": "Tilbage",
+    "gotIt": "Forstået",
+    "downloadApp": "App downloade",
+    "loading": "Belaster kultur..."
+  },
+  "SEO":{
+    "title": "kulturfinder.sh",
+    "dashboardTitle": "kulturfinder.sh - Kultur i din hånd",
+    "description": "The kulturfinder.sh app has all the information about culture in Schleswig-Holstein that you need. With more than 300 cultural institutions featured, you can have a look into descriptions, opening-times or digital services of each institution.",
+    "commonKeywords": "Kulturfinder, culture, app, Schleswig-Holstein, Kultursphäre, digital, Living Images, kulturfinder.sh, cultural institutions"
+  },
+  "locales": {
+    "de": {
+      "name": "Deutsch"
+    },
+    "en": {
+      "name": "English"
+    },
+    "da": {
+      "name": "Dansk"
+    }
+  },
+  "navbar": {
+    "aboutUs": "Om os",
+    "logo": "kulturfinder.sh-logo",
+    "settings": "Indstillinger",
+    "saveAsFavorite": "Gem som bogmærke",
+    "start": "Start",
+    "legalNotice": "Data beskyttelse & Om os",
+    "search": "Søg",
+    "noResults": "Ingen resultater",
+    "noGPS": "GPS fordele"
+  },
+  "about": {
+    "description": "kultursphäre.sh er et projekt hos Institut for Media på Fachhochschule Kiel. Projektet støttes af Ministeriet for uddannelse, videnskab, forskning og kultur i Slesvig-Holstén – i samarbejde med digiCULT og det Slesvig-Holsténske Delstatsbibliotek.",
+    "leadingLegal": "Ledelse & kolofon",
+    "imprint": "Aftryk",
+    "address0": "Prof. Dr. Tobias Hochscherf",
+    "address1": "FH Kiel | Fachbereich Medien",
+    "address2": "Grenzstraße 3",
+    "address3": "24149 Kiel",
+    "privacy": "Data beskyttelse",
+    "noThirdParties": "Brugen af denne app er normalt mulig uden at give personlige data. Disse data videresendes ikke til tredjepart uden dit udtrykkelige samtykke.",
+    "matomo": "Områdemåling med Matomo",
+    "matomoConsent": "Tillad webanalyse",
+    "matomoDescription": "Webanalysen (rækkevidde måling) bruges til at evaluere strømmen af besøgende til vores online tilbud og kan omfatte adfærd, interesser eller demografiske oplysninger om de besøgende. Ved hjælp af rækkevideanalysen kan vi for eksempel genkende på hvilket tidspunkt vores online tilbud eller dets funktioner eller indhold bruges oftest og forstå, hvilke områder der skal optimeres. Til disse formål kan såkaldte anonymiserede brugerdata oprettes og gemmes i en fil (cookie), eller lignende processer kan bruges til samme formål. Til denne information, f.eks. Indhold vist, besøgt websteder og elementer og teknisk information brugt der, såsom den anvendte browser, det anvendte computersystem og oplysninger om tidspunkter og placeringer af brug. IP-adresser gemmes pseudonymiseret ved at forkorte IP-adressen (IP-maskering) for at beskytte brugere. Der gemmes ingen klare brugerdata. Oplysningerne, der genereres af cookien om din brug af dette websted, gemmes kun på vores server og videresendes ikke til tredjepart.",
+    "matomoDescription2": "Du har til enhver tid mulighed for at gøre indsigelse mod områdeanalysen med fremtidig virkning. I dette tilfælde gemmes en såkaldt opt-out-cookie i din browser, hvilket betyder, at Matomo ikke længere indsamler nogen sessiondata. Hvis brugerne sletter deres cookies, betyder det imidlertid, at fravigelsescookien også slettes og derfor skal aktiveres igen af brugerne.",
+    "legalNotice": "Bemærkninger om retsgrundlag",
+    "legalNoticeDescription": "Hvis vi beder brugerne om deres samtykke til brug af tredjepartsudbydere, er det juridiske grundlag for behandling af data samtykke. Ellers behandles brugerens data på grundlag af vores legitime interesser (dvs. interesse i effektive, økonomiske og modtagervenlige tjenester). I denne sammenhæng vil vi også gerne henlede opmærksomheden på oplysningerne om brugen af cookies i denne databeskyttelseserklæring.",
+    "legalNoticePoint0": "Tjenesteudbyder: webanalyse / måling af rækkevidde i selvhosting",
+    "legalNoticePoint1": "Behandlede datatyper: brugsdata (f.eks. Besøgt websteder, interesse for indhold, adgangstider), meta / kommunikationsdata (f.eks. Enhedsinformation, IP-adresser).",
+    "legalNoticePoint2": "Berørte personer: brugere (f.eks. Besøgende på webstedet, brugere af onlinetjenester).",
+    "legalNoticePoint3": "Formål med behandling: rækkevidde måling (f.eks. Adgangsstatistik, genkendelse af tilbagevendende besøgende), sporing (f.eks. Interesse / adfærdsrelateret profilering, brug af cookies), besøg af evaluering af handlinger, profilering (oprettelse af brugerprofiler).",
+    "legalNoticePoint4": "Sikkerhedsforanstaltninger: IP-maskering (pseudonymisering af IP-adressen).",
+    "legalNoticePoint5": "Sletning af data: Cookiesne har en maksimal opbevaringsperiode på 13 måneder",
+    "legalNoticePoint6": "Oppositionsindstilling (fravalg): Brugere kan når som helst gøre indsigelse mod behandlingen af deres data af Matomo med fremtidig virkning. I dette tilfælde gemmes en såkaldt opt-out-cookie i din browser, hvilket betyder, at Matomo ikke længere indsamler nogen sessiondata. Hvis brugerne sletter deres cookies, betyder det imidlertid, at fravigelsescookien også slettes og derfor skal aktiveres igen af brugerne.",
+    "legalNoticePoint7": "Retsgrundlag: samtykke (artikel 6, stk. 1, stk. 1 a) GDPR), legitime interesser (artikel 6, stk. 1, stk. 1, litra GDPR).",
+    "legalNoticeProducedBy": "Oprettet ved hjælp af den gratis Datenschutz-Generator.de af Dr. Thomas Schwenke",
+    "hb": {
+      "imprint0": "Dataport",
+      "imprint1": "Altenholzer Straße 10-14",
+      "imprint2": "24161 Altenholz",
+      "imprint3": "Dataport ist eine Anstalt des öffentlichen Rechts. Sie wird vertreten durch den Vorstand:",
+      "imprint4": "Dr. Johann Bizer (Vorsitzender)",
+      "imprint5": "Silke Tessmann-Storch",
+      "imprint6": "Andreas Reichel",
+      "imprint7": "Torsten Koß",
+      "imprint8": "USt-IdNr. gemäß § 27a Umsatzsteuergesetz: DE813840400",
+      "imprint9": "dataport.de",
+      "imprint10": "kulturfinder[at]dataport.de",
+      "privacy00": "1) Welche Daten werden erfasst und wie werden sie verwendet?",
+      "privacy01": "a) Technische Merkmale",
+      "privacy02": "In unseren Server Log Files speichern wir Informationen, die Ihr Browser automatisch aus technischen Gründen an uns übermittelt. Dies sind:",
+      "privacy03": "Username des Apache-Prozesses (interne Verwendung)",
+      "privacy04": "Datum und Uhrzeit des Requests",
+      "privacy05": "Request Typ",
+      "privacy06": "Aufgerufene URL",
+      "privacy07": "Antwortcode vom Webserver",
+      "privacy08": "Übertragene Datenmenge",
+      "privacy09": "Referer URL",
+      "privacy10": "Browser-Kennung",
+      "privacy11": "Host-Kennung des Requests (interne Verwendung)",
+      "privacy12": "X-Forwarded-For Header",
+      "privacy13": "Request Cookies",
+      "privacy14": "Diese protokollierten Daten werden von uns für folgende Zwecke verwendet:",
+      "privacy15": "Zur technischen Administration und zur Bereitstellung unserer Website.",
+      "privacy16": "Ausschließlich im gesetzlich vorgesehenen Rahmen,",
+      "privacy17": "zur Abwehr von Angriffsversuchen auf unseren Webserver,",
+      "privacy18": "zur Missbrauchserkennung und Störungsbeseitigung,",
+      "privacy19": "zur Weitergabe bzw. Auskunftserteilung gegenüber staatlichen Stellen,",
+      "privacy20": "zur Weitergabe bzw. Auskunftserteilung gegenüber Inhabern von Urheber- und Leistungsschutzrechten.",
+      "privacy21": "Verlaufsdaten sowie Protokolldaten (Logdateien) werden automatisch nach 30 Tagen gelöscht.",
+      "privacy22": "2) Verlinkungen auf Seiten anderer Anbieter",
+      "privacy23": "Diese Datenschutzerklärung gilt nur für den Server von Dataport. Auf den Servern, zu denen die externen Links führen, kann es eine andere Datenschutzerklärung (Privacy Policy) geben. Um diese zu überprüfen, sollten Sie die Startseite/Homepage des jeweiligen Angebots aufsuchen und sich bei Bedarf direkt an den jeweiligen Anbieter wenden. Dataport übernimmt keine Verantwortung für die Inhalte oder für die Privacy Policies der externen Anbieter.",
+      "privacy24": "3) Wo werden meine Daten verarbeitet?",
+      "privacy25": "Ihre Daten werden grundsätzlich in Deutschland und ausschließlich in unserem eigenen Rechenzentrum verarbeitet.",
+      "privacy26": "4) Wie sicher sind meine Daten?",
+      "privacy27": "Zum Schutz Ihrer Daten vor unberechtigtem Zugriff und Missbrauch haben wir umfangreiche technische und betriebliche Sicherheitsvorkehrungen nach Maßgabe der europäischen Datenschutz-Grundverordnung und nach dem Landesdatenschutzgesetz Schleswig-Holstein getroffen. Das von uns betriebene Rechenzentrum ist vom Bundesamt für Sicherheit in der Informationstechnik (BSI) nach dem Standard BSI-Grundschutz zertifiziert.",
+      "privacy28": "5) Welche Rechte habe ich in Bezug auf meine Daten?",
+      "privacy29": "Sie können im Rahmen der gesetzlichen Voraussetzungen Auskunft über Ihre von uns gespeicherten personenbezogenen Daten oder deren Berichtigung, Sperrung oder Löschung von uns verlangen. Verwenden Sie dafür bitte unser",
+      "privacy30": "Kontakt-Formular.",
+      "privacy31": "10) Welches ist die zuständige Aufsichtsbehörde?",
+      "privacy32": "Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein",
+      "privacy33": "Holstenstraße 98",
+      "privacy34": "24103 Kiel",
+      "privacy35": "mail[at]datenschutzzentrum.de"
+    },
+    "positionRelatedData": "Positionsrelaterede data",
+    "positionRelatedDataProcessing": "I forbindelse med denne app er det muligt at bestemme brugerens geografiske position, såfremt brugeren har givet tilladelse til det i indstillingerne på sin terminal. Til positionsbestemmelsen anvendes en række teknologier, som f. eks. IP-adresse og GPS-data. Disse data anvendes udelukkende på brugerens terminal.",
+    "accessibility": {
+      "declarationsHeadline": "Erklärung zur Barrierefreiheit",
+      "LBGG_BITV": "Das Team des kulturfinder.sh bemüht sich, die Website kulturfinder.sh im Einklang mit dem Gesetz zur Gleichstellung von Menschen mit Behinderung in Schleswig Holstein (LBGG) und der Barrierefreie-Informationstechnik-Verordnung (BITV) barrierefrei zugänglich zu machen. Diese Erklärung zur Barrierefreiheit gilt für den gesamten Internetauftritt kulturfinder.sh",
+      "currentStatusHeadline": "Stand der Vereinbarkeit mit den Anforderungen",
+      "currentStatus": "Die Website ist mit der BITV teilweise vereinbar. Die „gute Zugänglichkeit“ ist sichergestellt.\nBei folgenden Inhalten wurden beim Barrierefreiheitstest Mängel festgestellt und sind nicht vereinbar mit den genannten Rechtsvorschriften:",
+      "faults": {
+        "0": "Konsistenz der Navigation: Die Navigation ist teilweise nicht einheitlich gestaltet und schränkt das Verständnis ein.",
+        "1": "Einfache Sprache: Erklärungen der Seite und dessen Bedienung sind nicht in einfacher Sprache verfügbar."
+      },
+      "correcting": "Eine Verbesserung der Zugänglichkeit ist weithin geplant.",
+      "declarationCreatedHeadline": "Erstellung dieser Erklärung zur Barrierefreiheit",
+      "declarationCreated": "Auf Grundlage einer Selbstbewertung vom 04.12.2020 wurde diese Erklärung am 04.12.2020 erstellt.",
+      "feedbackHeadline": "Feedback und Kontaktangaben",
+      "feedbackExplanation": "Wenn Sie weitere Fragen zur Umsetzung der Barrierefreiheit haben oder Ihnen Mängel in Bezug auf die Einhaltung der Barrierefreiheitsanforderungen auffallen, dann nehmen Sie mit uns über die auf dieser Seite genannten Möglichkeiten Kontakt auf.",
+      "complaintsOfficeHeadline": "Beschwerdestelle",
+      "complaintsOfficeExplanation": "Falls Sie der Ansicht sind, dass Sie durch eine nicht barrierefreie Gestaltung benachteiligt sind, können Sie sich an die Beschwerdestelle Schleswig Holstein wenden:",
+      "complaintsOffice": {
+        "name": "Beschwerdestelle zu Barrieren bei Informationen öffentlicher Stellen im Internet",
+        "street": "Karolinenweg 1",
+        "city": "24105 Kiel",
+        "phone": "0431 988-1620",
+        "email": "bbit@landtag.ltsh.de"
+      }
+    }
+  },
+  "licenses": {
+    "oss-third-party": "Open source-licenser for tredjepartspakker",
+    "licenses": "Licenser",
+    "license": "Licens",
+    "amount": "Nummer",
+    "colon": ":",
+    "summary": "Resumé",
+    "author": "Forfatter: ",
+    "multi": "Udvælgelse til flerkoncessioner",
+    "choice": "Udvalgt licens"
+  },
+  "noData": {
+    "welcome": "Willkommen beim kulturfinder.sh!",
+    "notDownloadable": "Leider konnten wir notwendige Daten nicht von unserem Kooperationspartner herunterladen. Bitte haben Sie ein wenig Geduld, es wird bereits an einer Lösung gearbeitet.",
+    "reload": "Erneut laden"
+  },
+  "updateModal": {
+    "newPwaVersionTitle": "Ny version tilgængelig!",
+    "newPwaVersionText": "Denne side genindlæses."
+  },
+  "pwaBanner": {
+    "iosPwaClaim": "Always available as an app.",
+    "iosPwaAdd": "Add to homescreen"
+  },
+  "pwaModal": {
+    "title": "App installere",
+    "text": "You can download and install the kulturfinder app. You can then use the app offline, let you find cultural institutions at any time straight from your home screen.",
+    "android": {
+      "step1": "1. Open the browser menu.",
+      "step2": "2. Select 'Add to home screen'.",
+      "step3": "3. Press the 'Add' button'."
+    },
+    "iOS": {
+      "step1": "1. Press the share button",
+      "step2": "2. Select 'Add to Home Screen'",
+      "step3": "3. 3. Press the 'Add' button."
+    },
+    "windows": {
+      "step1": "1. Click on the plus icon in the address bar.",
+      "step2": "2. Click on the blue button."
+    },
+    "mac": {
+      "step1": "1. Open the menu and click on 'install kulturfinder.sh...' or directly click on the plus icon in the address bar.",
+      "step2": "2. Click on the blue button."
+    }
+  },
+  "noGPS": {
+    "title": "GPS deaktiveret",
+    "description": "Aktivér GPS for at få nyttige oplysninger.",
+    "yourBenefits": "Brugerens fordele:",
+    "benefit1": "Begivenhedsforslag fra brugerens omgivelser",
+    "benefit2": "Afstand til alle destinationer",
+    "enableGPS": "GPS aktivere",
+    "howToHandle": "Your location for this site is blocked.",
+    "howToHandle2" : "Please check the settings of your device and refresh this website, to use the location functions of kulturfinder.sh"
+  },
+  "noNetwork": {
+    "title": "No internet connection",
+    "description": "We are currently not able to get any details, please check your internet connection."
+  },
+  "dashboard": {
+    "inYourArea": "I nærheden af, hvor du er",
+    "suggestions": "Forslag",
+    "schietwetter": "Møgvejr",
+    "videoclips": "Videoclips",
+    "museums-card": "MuseumsCard",
+    "living-images": "Living Images",
+    "living-images1": "Living",
+    "living-images2": "Images",
+    "gpsDisabled": "GPS inaktivt",
+    "signLanguage": "Tegnsprog",
+    "showAllResults": "Vis alle resultater",
+    "toResultsPage": "Til listen",
+    "signLanguageModal": {
+      "title": "Explanation video in sign language",
+      "noVideo": "Your browser sadly does not support this video. Update or change your browser to see the sign language video."
+    }
+  },
+  "details": {
+    "banner": "Billede af institutionen",
+    "noWebsite": "Ingen hjemmeside",
+    "noDescription": "Undskyld. Denne tekst er endnu ikke tilgængelig på alle sprog. Vi arbejder på sagen.",
+    "favorite": "Favorit",
+    "share": "Dele",
+    "shareSubject": "Prøv at se, hvad jeg har fundet til dig in din kulturfinder-app:",
+    "showOnMap": "Vis på kort",
+    "routeViaNavigationApp": "Vis kørselsvejledning i kort-applikation",
+    "socialMedia": "Sociale netværk",
+    "eventCalender": "Begivenheder",
+    "showEvents": "Vis begivenheder",
+    "digitalContents": "Digitale tilbud",
+    "digitalContent": "Digitale tilbud",
+    "iOSApp": "iOS-app",
+    "audioGuides": "Audioguides",
+    "address": "Adresse",
+    "emailAddress": "Email-adresse",
+    "telephone": "Telefon",
+    "openingHours": "Åbningstider",
+    "noOpeningHours": "Vi har endnu ingen åbningstider på denne institution. Check venligst institutionens hjemmeside.",
+    "monday": "Mandag",
+    "tuesday": "Tirsdag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lørdag",
+    "sunday": "Søndag",
+    "currentlyOpened": "Åbent i øjeblikket",
+    "currentlyClosed": "I øjeblikket lukket",
+    "opens": "Åbner",
+    "at": "kl",
+    "closes": "Lukker",
+    "closed": "Lukket",
+    "closedHolidays": "Lukket på følgende helligdage:",
+    "coronaWarningText": "Currently, there might be different opening hours due to the coronavirus. Please also check the institution's website.",
+    "coronaWarningTextDecember": "Nearly all cultural institutions are closed. Please check the insitution's website for respective information.",
+    "until": "–",
+    "noGuarantee": "Ingen garanti for åbningstiders rigtighed. Disse kan især afvige på helligdage. Check venligst også oplysningerne på institutionens hjemmeside.",
+    "comma": ",",
+    "noCategories": "Der er ikke allokeret nogen kategorier.",
+    "noTags": "Der er ikke fundet nogen tilbud.",
+    "livingImagesTitle": "Living Images",
+    "livingImagesDescription": "Find vores interaktive billeder og væk dem til live!",
+    "livingImagesCallToAction": "Living Images – væk dem nu!",
+    "livingImagesIOSWebAppWrongVersion": "We're sorry, but our Living Images are not supported by your operating system. Please update your iOS version.",
+    "livingImagesIsDesktop": "You need a mobile device to view the Living Images.",
+    "livingImagesNotSupported": "We're sorry, but our Living Images are not supported by your browser.",
+    "holidays": {
+      "sd0001": "Nytårsdag",
+      "sd0006": "Langfredag",
+      "sd0008": "Påskemandag",
+      "sd0009": "1. maj",
+      "sd0012": "Pinsemandag",
+      "sd0010": "Kristi Himmelfart",
+      "sd0014": "Tysk Genforeningsdag (3. oktober)",
+      "sd0016": "Juleaftensdag",
+      "sd0017": "1. Juledag",
+      "sd0018": "2. Juledag",
+      "sd0019": "Nytårsaftensdag",
+      "sd0025": "Reformationsdag (31. oktober)"
+    },
+    "feedback": "Feedback",
+    "feedbackIntro": "Any comments, ideas, or feedback about the app? Please contact our team at kulturfinder.sh. We would very much appreciate to hear from you!",
+    "feedbackInstitutionHeadline": "Would you like to contact the institution directly?",
+    "feedbackInstitutionText": "For questions or inqueries concerning the institution, please check out the 'contact' section for each institution.",
+    "feedbackWrongOpeningHoursHeadline": "Åbningstider forkerte?",
+    "feedbackWrongOpeningHoursText": "Trods max. omhu kan vi desværre ikke give nogen garanti for åbningstiders rigtighed og fuldstændighed. Især på helligdage kan tiderne være anderledes – eller de ændres alt efter sæson flere gange i årets løb. Vi beklager, hvis du/i skulle være kommet ud for ulemper i den forbindelse, og det ville i givet fald glæde os at modtage en tilbagemelding om fejlen. På forhånd mange tak!",
+    "museumscard": {
+      "title": "MuseumsCard 2025",
+      "text1": "Free entrance",
+      "text2": "for everybody under 18.",
+      "url": "www.meine-museumscard.de"
+    }
+  },
+  "favorites": {
+    "noFavorites": "Der findes ingen bogmærker endnu."
+  },
+  "filter": {
+    "resetButtonLabel": "Nullstille",
+    "fabButtonLabel": "Filter ({count})",
+    "resultCount": "{count} resultater",
+    "showResultsButtonLabelCount": "Vis {count} resultater",
+    "showResultsButtonLabelNoResults": "Ingen resultater",
+    "favoritesOnly": "Kun bogmærker",
+    "all": "(alle)"
+  },
+  "museumscard": {
+		"description": "Fra 6. juni til 17. november får du gratis adgang til over 130 museer i Slesvig-Holsten! Det gælder for alle unge under 18 år og indehavere af et Juleica-kort.",
+		"nahverkehr": "Den 24. og 31. oktober gælder dit MuseumsCard som billet (for alle under 18 år eller med en Juleica) i alle regionaltog på 2. klasse i Slesvig-Holsten samt til Hamburg Altona eller Hamburg Hbf. og i rutebiler i Slesvig-Holsten.",
+		"description2": "MuseumsCard er et initiativ fra Ministeriet for Uddannelse, Videnskab, Forskning og Kultur i delstaten Slesvig-Holsten og Sparekasse- og Giroforeningen i Slesvig-Holsten i samarbejde med Landesjugendring Schleswig-Holstein og Museumsverband Schleswig-Holstein und Hamburg. En anden samarbejdspartner er Nahverkehr Schleswig-Holstein.",
+		"tickets": "Billet",
+		"website": "Webside"
+  },
+  "list": {
+    "noClaim": "",
+    "showDetails": "Til detailsiden."
+  },
+  "map": {
+    "highContrast": "Høj kontrast"
+  },
+  "nahSh": {
+    "showDepartures": "Vis afgangstider for NAH.SH",
+    "location": {
+      "start": "Din position"
+    }
+  },
+  "vbn": {
+    "showDepartures": "Vis afgangstider for VBN"
+  },
+  "socialLinks": {
+    "noSocialMedia": "Der findes ingen sociale netværk."
+  },
+  "categories": {
+    "http://digicult": {
+      "vocnet": {
+        "org/portal/p0264": "Udendørs",
+        "org/portal/p0294": "Film",
+        "org/portal/p0295": "Viden & natur",
+        "org/portal/p0296": "Musik",
+        "org/portal/p0297": "Museum & udstilling",
+        "org/portal/p0298": "Litteratur",
+        "org/portal/p0299": "Scene"
+      }
+    }
+  },
+  "tags": {
+    "opt001": "Gratis",
+    "opt004": "P-plads",
+    "opt006": "Rundvisninger med jævne mellemrum",
+    "opt012": "Tilbud for synshæmmede",
+    "opt013": "Tilbud for hørehæmmede",
+    "opt014": "Tilbud for mentalt handicappede",
+    "opt017": "Barrierefri adgang",
+    "opt020": "Handicap-P-plads",
+    "opt021": "Butik",
+    "opt022": "Gastronomi",
+    "opt024": "Handicaptoilet",
+    "opt033": "familievenligt",
+    "opt035": "Tilbud til skoleklasser",
+    "opt036": "Møgvejr",
+    "opt037": "Open air",
+    "opt039": "MuseumsCard",
+    "opt041": "Videoclips",
+    "optlang_en": "Tilbud på engelsk",
+    "optlang_dk": "Tilbud på dansk"
+  }
+}
