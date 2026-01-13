@@ -1,12 +1,12 @@
 <template>
   <div id="museumscard">
     <vue-headful
-      :title="$t('common.museums-card') + ' | ' + $t('SEO.title')"
+      :title="$t('common.museums-card') + ' | ' + appName"
       :description="$t('common.museums-card')"
-      :keywords="$t('SEO.commonKeywords')"
+      :keywords="appKeywords"
       :lang="`/${$route.params.locale}/`"
       og-locale="de"
-      url="https://kulturfinder.sh"
+      :url="appURL"
     />
     <ks-header>
       <!-- Logo mit Link zur Homepage -->
@@ -15,9 +15,8 @@
           <img
             height="40px"
             class="logo p-0"
-            src="@/assets/images/logos/kf_logo.png"
+            :src="'/' + tenant + '/img/logos/kf_logo.png'"
             :alt="$t('navbar.logo')"
-            role="img"
             data-cy="kulturfinderLogo"
           >
         </b-nav-item>
@@ -26,15 +25,14 @@
 
     <div id="main-container">
       <div id="main-content" class="position-relative">
-        <b-container class="p-4">
-          <b-container class="text-center">
-            <img id="museumscard"
-                 src="@/assets/images/logos/museumscard_logo_2023_rotbeige.svg"
-                 class="museumscard-logo"
-                 alt="Museumscard"
-                 data-cy="museumsCardLogo"
-            >
-          </b-container>
+        <b-container class="text-center">
+          <img
+            id="museumscard"
+            src="@/assets/images/logos/2025_museumscard_logo_datum_lilabeige.png"
+            class="museumscard-logo"
+            alt="Museumscard"
+            data-cy="museumsCardLogo"
+          >
         </b-container>
         <template>
           <b-container id="kachel-container" class="w-md-90 px-4 pb-2f">
@@ -44,7 +42,7 @@
                   class="ks-card"
                   :href="'https://www.meine-museumscard.de'" target="_blank"
                   :text="$t('museumscard.tickets')"
-                  :image-source="require(`@/assets/images/logos/museumscard_logo_blue.png`)"
+                  :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png`)"
                   :museumscard="true"
                   data-cy="museumsCardKachel"
                 />
@@ -71,7 +69,6 @@
               <h2 class="mb-1 pb-3 pt-1" data-cy="museumsCardHeadline">{{ $t('common.museums-card') }}</h2>
             </div>
             <p class="m-4" data-cy="museumsCardDescription1">{{ $t('museumscard.description') }}</p>
-            <p class="m-4" data-cy="museumsCardDescription2">{{ $t('museumscard.info') }}</p>
             <p class="m-4" data-cy="museumsCardNahverkehrDescription">{{ $t('museumscard.nahverkehr') }}</p>
             <p class="m-4" data-cy="museumsCardDescription3">{{ $t('museumscard.description2') }}</p>
           </b-container>
@@ -101,7 +98,13 @@ export default {
     KsCard,
     KsHeader
   },
-  mixins: [ScrollPosition]
+  mixins: [ScrollPosition],
+  computed: {
+    appURL: function () { return process.env.VUE_APP_URL },
+    appName: function () { return process.env.VUE_APP_NAME },
+    appKeywords: function () { return process.env.VUE_APP_KEYWORDS },
+    tenant: function () { return process.env.VUE_APP_TENANT }
+  }
 }
 
 </script>
@@ -111,10 +114,11 @@ export default {
   padding: 1.5em;
 }
 .museumscard-logo{
-  height: 30%;
-  width: 40%;
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding: 16px;
+  object-fit: contain;
+  height: inherit;
+  max-height: 400px;
+  max-width: 100%;
 }
 
 .ks-card-container {

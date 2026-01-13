@@ -1,17 +1,17 @@
 <template>
   <div id="about">
     <vue-headful
-      :title="$t('navbar.aboutUs') + ' | ' + $t('SEO.title')"
-      :description="$t('SEO.description')"
-      :keywords="$t('SEO.commonKeywords')"
-      :lang="`/${$route.params.locale}/`"
+      :title="$t('navbar.aboutUs') + ' | ' + appName"
+      :description="appDescription"
+      :keywords="appKeywords"
+      :lang="`${locale}`"
       og-locale="de"
-      url="https://kulturfinder.sh"
+      :url="appURL"
     />
     <ks-header :header-title="$t('navbar.aboutUs')">
       <template #right>
         <!-- Home Button -->
-        <b-nav-item router-link :to="'/${$route.params.locale}/'">
+        <b-nav-item router-link :to="`/${locale}`">
           <img
             alt="HomeButton"
             height="20px"
@@ -26,7 +26,7 @@
       <div id="main-content">
         <b-container class="p-4">
           <b-container class="about-logo">
-            <img :alt="$t('navbar.logo')" id="logo" src="@/assets/images/logos/kf_logo.png">
+            <img :alt="$t('navbar.logo')" id="logo" :src="'/' + tenant + '/img/logos/kf_logo.png'">
           </b-container>
           <hr>
           <b-row class="social-media">
@@ -46,7 +46,7 @@
               </b-col>
             </a>
           </b-row>
-          <p class="mt-4">
+          <p v-if="tenant === 'sh'" class="mt-4">
             {{ $t('about.description') }}
           </p>
           <section id="partners" class="py-3">
@@ -77,7 +77,7 @@
               </b-col>
             </b-row>
           </section>
-          <section>
+          <section v-if="tenant === 'sh'">
             <h2 class="mt-4">{{ $t('about.leadingLegal') }}</h2>
             <p>
               {{ $t('about.address0') }}<br>
@@ -115,11 +115,109 @@
               </span>
             </p>
           </section>
-          <section>
+          <section v-if="tenant === 'hb'">
+            <h2 class="mt-4">{{ $t('about.imprint') }}</h2>
+            <p>
+              {{ $t('about.hb.imprint0') }}<br>
+              {{ $t('about.hb.imprint1') }}<br>
+              {{ $t('about.hb.imprint2') }}<br>
+            </p>
+            <p>
+              {{ $t('about.hb.imprint3') }}<br>
+              {{ $t('about.hb.imprint4') }}<br>
+              {{ $t('about.hb.imprint5') }}<br>
+              {{ $t('about.hb.imprint6') }}<br>
+              {{ $t('about.hb.imprint7') }}<br>
+            </p>
+            <p>
+              {{ $t('about.hb.imprint8') }}<br>
+            </p>
+            <h2 class="mt-4">{{ $t('common.contact') }}</h2>
+            <p>
+              <span class="contact">
+                <icon-base
+                  color="#003064"
+                  :title="$t('common.website')"
+                  class="mr-2"
+                  role="img"
+                >
+                  <icon-globe/>
+                </icon-base>
+                <a :href="'https://dataport.de'" target="_blank">
+                  {{ $t('about.hb.imprint9') }}<br>
+                </a>
+              </span>
+              <span class="contact">
+                <icon-base
+                  color="#003064"
+                  title="Email-Adresse"
+                  class="mr-2"
+                  role="img"
+                >
+                  <icon-mail/>
+                </icon-base>
+                <a :href="'mailto:kulturfinder@dataport.de'">
+                  {{ $t('about.hb.imprint10') }}<br>
+                </a>
+              </span>
+            </p>
+          </section>
+          <section v-if="tenant === 'sh'">
             <h2 class="mt-4">{{ $t('about.privacy') }}</h2>
             <p>
               {{ $t('about.noThirdParties') }}
             </p>
+          </section>
+          <section v-if="tenant === 'hb'">
+            <h2 class="mt-4">{{ $t('about.privacy') }}</h2>
+            <p>
+              {{ $t('about.hb.privacy00') }}<br>
+              {{ $t('about.hb.privacy01') }}<br>
+              {{ $t('about.hb.privacy02') }}<br>
+              <br>
+              {{ $t('about.hb.privacy03') }}<br>
+              {{ $t('about.hb.privacy04') }}<br>
+              {{ $t('about.hb.privacy05') }}<br>
+              {{ $t('about.hb.privacy06') }}<br>
+              {{ $t('about.hb.privacy07') }}<br>
+              {{ $t('about.hb.privacy08') }}<br>
+              {{ $t('about.hb.privacy09') }}<br>
+              {{ $t('about.hb.privacy10') }}<br>
+              {{ $t('about.hb.privacy11') }}<br>
+              {{ $t('about.hb.privacy12') }}<br>
+              {{ $t('about.hb.privacy13') }}<br>
+              <br>
+              {{ $t('about.hb.privacy14') }}<br>
+              <br>
+              {{ $t('about.hb.privacy15') }}<br>
+              {{ $t('about.hb.privacy16') }}<br>
+              {{ $t('about.hb.privacy17') }}<br>
+              {{ $t('about.hb.privacy18') }}<br>
+              {{ $t('about.hb.privacy19') }}<br>
+              {{ $t('about.hb.privacy20') }}<br>
+              <br>
+              {{ $t('about.hb.privacy21') }}<br>
+              <br>
+              {{ $t('about.hb.privacy22') }}<br>
+              {{ $t('about.hb.privacy23') }}<br>
+              <br>
+              {{ $t('about.hb.privacy24') }}<br>
+              {{ $t('about.hb.privacy25') }}<br>
+              <br>
+              {{ $t('about.hb.privacy26') }}<br>
+              {{ $t('about.hb.privacy27') }}<br>
+              <br>
+              {{ $t('about.hb.privacy28') }}<br>
+              {{ $t('about.hb.privacy29') }} <a href="https://www.dataport.de/kontakt/">{{ $t('about.hb.privacy30') }}</a><br>
+              <br>
+              {{ $t('about.hb.privacy31') }}<br>
+              {{ $t('about.hb.privacy32') }}<br>
+              {{ $t('about.hb.privacy33') }}<br>
+              {{ $t('about.hb.privacy34') }}<br>
+              {{ $t('about.hb.privacy35') }}<br>
+            </p>
+          </section>
+          <section v-if="matomoActive">
             <h2 class="mt-4">{{ $t('about.matomo') }}</h2>
             <b-form-checkbox
               v-model="analyticsConsent"
@@ -170,8 +268,9 @@
               {{ $t('about.accessibility.currentStatus') }}
             </p>
             <ul>
-              <li>{{ $t('about.accessibility.faults.0') }}</li>
-              <li>{{ $t('about.accessibility.faults.1') }}</li>
+              <li v-for="(fault, key) in $t('about.accessibility.faults', {}, { returnObjects: true })" :key="key">
+                {{ fault }}
+              </li>
             </ul>
             <p>
               {{ $t('about.accessibility.correcting') }}
@@ -202,6 +301,7 @@
 
 <script>
 import KsHeader from '@/components/layout/Header.vue'
+import i18n from '@/i18n'
 import ScrollPosition from '@/mixins/scrollposition'
 
 export default {
@@ -252,6 +352,15 @@ export default {
     const checkConsentCookie = this.getCookie('CookieConsent')
     this.analyticsConsent = checkConsentCookie !== 'false'
   },
+  computed: {
+    matomoActive: function () { return process.env.VUE_APP_MATOMO === 'true' },
+    appURL: function () { return process.env.VUE_APP_URL },
+    appName: function () { return process.env.VUE_APP_NAME },
+    appDescription: function () { return process.env.VUE_APP_DESCRIPTION },
+    appKeywords: function () { return process.env.VUE_APP_KEYWORDS },
+    tenant: function () { return process.env.VUE_APP_TENANT },
+    locale: function () { return i18n.locale }
+  },
   methods: {
     changeAnalyticsConsent() {
       // Change The Cookie Consent
@@ -279,12 +388,12 @@ export default {
     getCookie(cname) {
       const name = cname + '='
       const ca = document.cookie.split(';')
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i]
-        while (c.charAt(0) === ' ') {
+      for (const element of ca) {
+        let c = element
+        while (c.startsWith(' ')) {
           c = c.substring(1)
         }
-        if (c.indexOf(name) === 0) {
+        if (c.startsWith(name)) {
           return c.substring(name.length, c.length)
         }
       }

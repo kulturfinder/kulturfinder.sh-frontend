@@ -1,12 +1,12 @@
 <template>
   <div id="dashboard">
     <vue-headful
-      :title="$t('SEO.dashboardTitle')"
-      :description="$t('SEO.description')"
-      :keywords="$t('SEO.commonKeywords')"
+      :title="appName"
+      :description="appDescription"
+      :keywords="appKeywords"
       :lang="`/${$route.params.locale}/`"
       og-locale="de"
-      url="https://kulturfinder.sh"
+      :url="appURL"
     />
     <ks-header :shadow="false" :toggle-bar-open="searchbarOpen">
       <template #left>
@@ -18,7 +18,7 @@
           <img
             height="56px"
             class="logo p-0"
-            src="@/assets/images/logos/kf_logo.png"
+            :src="'/' + tenant + '/img/logos/kf_logo.png'"
             :alt="$t('navbar.logo')"
             role="img"
             data-cy="mainLogo"
@@ -91,15 +91,23 @@
         <b-container class="ks-card-container pt-3 pb-2">
           <b-row class="justify-content-center">
             <ks-card
+              v-if="tenant === 'sh'"
               :route="`/${$route.params.locale}/institutions/map?isFavorite=false`"
               :text="$t('common.map')"
-              :image-source="require(`@/assets/images/icons/cards/map.svg`)"
+              icon="IconMap"
+              data-cy="mapCard"
+            />
+            <ks-card
+              v-if="tenant === 'hb'"
+              :route="`/${$route.params.locale}/institutions/map?isFavorite=false`"
+              :text="$t('common.map')"
+              icon="IconBremenBremerhafen"
               data-cy="mapCard"
             />
             <ks-card
               :route="`/${$route.params.locale}/institutions/list?isFavorite=false`"
               :text="$t('common.list')"
-              :image-source="require(`@/assets/images/icons/cards/list.svg`)"
+              icon="IconList"
               data-cy="listCard"
             />
           </b-row>
@@ -107,49 +115,59 @@
             <ks-card
               :route="`/${$route.params.locale}/institutions/list?isFavorite=true`"
               :text="$t('common.favorites')"
-              :image-source="require(`@/assets/images/icons/cards/favorites.svg`)"
-              :small="true"
+              icon="IconFavorites"
+              :small="(tenant === 'sh')"
               data-cy="favoritesCard"
             />
             <ks-card
               :route="`/${$route.params.locale}/institutions/map/filters`"
               :text="$t('common.filters')"
-              :image-source="require(`@/assets/images/icons/cards/filter.svg`)"
-              :small="true"
+              icon="IconFilter"
+              :small="(tenant === 'sh')"
               data-cy="filtersCard"
             />
           </b-row>
           <b-row class="justify-content-center">
             <ks-card
+              v-if="tenant === 'sh'"
               :route="`/${$route.params.locale}/institutions/list?tags=Living%20Image`"
               :text="$t('dashboard.living-images')"
-              :image-source="require(`@/assets/images/icons/cards/livingImages.svg`)"
-              :small="true"
+              icon="IconLivingImages"
+              :small="(tenant === 'sh')"
               data-cy="livingImagesCard"
             />
             <ks-card
-              v-if="museumsCardEnabled"
+              v-if="tenant === 'hb'"
+              :route="`/${$route.params.locale}/institutions/map?tags=Schietwetter`"
+              :text="$t('dashboard.schietwetter')"
+              icon="IconIndoor"
+              :small="(tenant === 'sh')"
+              data-cy="indoorCard"
+            />
+            <ks-card
+              v-if="museumsCardEnabled && tenant === 'sh'"
               :route="`/${$route.params.locale}/museumscard`"
-              :image-source="require(`@/assets/images/logos/museumscard_logo2023_blue.png`)"
-              :small="true"
+              :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png`)"
+              :small="(tenant === 'sh')"
               :museumscard-small="true"
               data-cy="museumsCardKachel"
             />
             <ks-card
-              v-else
+              v-if="cityOfLiteratureEnabled && tenant === 'hb'"
+              :route="`/${$route.params.locale}/cityOfLiterature`"
+              :image-source="require(`@/assets/images/logos/logo_cityOfLiterature.png`)"
+              :text="$t('cityOfLiterature.shortTitle')"
+              :small="false"
+              data-cy="cityOfLiteratureCard"
+            />
+            <ks-card
+              v-if="!museumsCardEnabled && !cityOfLiteratureEnabled"
               :route="`/${$route.params.locale}/institutions/list?tags=Videoclips`"
               :text="$t('dashboard.videoclips')"
-              :image-source="require(`@/assets/images/icons/cards/videos.svg`)"
-              :small="true"
+              icon="IconVideos"
+              :small="(tenant === 'sh')"
               data-cy="videoClipsCard"
             />
-            <!-- SCHIETWETTER DASHBOARD-BUTTON
-                <ks-card
-              :route="`/${$route.params.locale}/institutions/map?tags=Schietwetter`"
-              :text="$t('dashboard.schietwetter')"
-              :image-source="require(`@/assets/images/icons/cards/indoor.svg`)"
-              :small="true"
-            /> -->
           </b-row>
         </b-container>
 
@@ -206,16 +224,17 @@
 </template>
 
 <script>
-import KsList from '@/components/institutions/List.vue'
 import SearchBar from '@/components/common/SearchBar.vue'
-import KsCarousel from '@/components/dashboard/Carousel.vue'
 import KsCard from '@/components/dashboard/Card.vue'
+import KsCarousel from '@/components/dashboard/Carousel.vue'
+import KsList from '@/components/institutions/List.vue'
 import KsHeader from '@/components/layout/Header'
+import i18n from '@/i18n'
+import ScrollPosition from '@/mixins/scrollposition'
+import detectRTC from 'detectrtc'
 import { mapGetters } from 'vuex'
 import LocaleChanger from '../components/dashboard/LocaleChanger'
 import SignLanguageModal from '../components/dashboard/SignLanguageModal.vue'
-import ScrollPosition from '@/mixins/scrollposition'
-import detectRTC from 'detectrtc'
 
 export default {
   name: 'Dashboard',
@@ -227,8 +246,7 @@ export default {
         'Mac',
         'Android',
         'iOS'
-      ],
-      museumsCardEnabled: process.env.VUE_APP_MUSEUMSCARD === 'true'
+      ]
     }
   },
   components: {
@@ -256,18 +274,27 @@ export default {
     focus() {
       console.log(this.searchbarOpen, this.$refs.searchCollapse.contains(document.activeElement))
       return this.$refs.searchCollapse.contains(document.activeElement)
-    }
+    },
+    museumsCardEnabled: function () { return process.env.VUE_APP_MUSEUMSCARD === 'true' },
+    cityOfLiteratureEnabled: function () { return process.env.VUE_APP_CITY_OF_LITERATURE === 'true' },
+    appURL: function () { return process.env.VUE_APP_URL },
+    appName: function () { return process.env.VUE_APP_NAME },
+    appDescription: function () { return process.env.VUE_APP_DESCRIPTION },
+    appKeywords: function () { return process.env.VUE_APP_KEYWORDS },
+    tenant: function () { return process.env.VUE_APP_TENANT },
+    locale: function () { return i18n.locale }
   },
   methods: {
     onToggleSearchbar() {
-      if (this.searchbarOpen) {
-        this.$refs.searchbar.blurInput()
-        this.searchbarOpen = !this.searchbarOpen
-        this.$store.dispatch('filters/updateSearchQuery', '')
-      } else {
-        this.searchbarOpen = !this.searchbarOpen
-        this.$refs.searchbar.focusInput()
-      }
+      this.searchbarOpen = !this.searchbarOpen
+      this.$nextTick(() => {
+        if (this.searchbarOpen) {
+          this.$refs.searchbar.$el.querySelector('input').focus()
+        } else {
+          this.$refs.searchbar.blurInput()
+          this.$store.dispatch('filters/updateSearchQuery', '')
+        }
+      })
     },
     searchBarEnterHandler(value) {
       this.$router.push(`/${this.$route.params.locale}/institutions/list?searchQuery=${value}`)
@@ -302,7 +329,7 @@ export default {
 
 #search-preview {
   display: none;
-  box-shadow: 0px 11px 10px #00000066;
+  box-shadow: 0 11px 10px #00000066;
   left: 0;
   right: 0;
   padding: 4px;
@@ -324,9 +351,11 @@ export default {
     }
   }
 }
+
 .ks-card-container {
   background-color: $gray;
 }
+
 .b-dropdown {
   background-color: var(--white) !important;
   > .dropdown-menu {
@@ -336,19 +365,22 @@ export default {
     transform: translate3d(-20px, 40px, 0px);
   }
 }
+
 #dropdown-1__BV_toggle_{
   display: flex !important;
-  // flex-direction: row !important;
   align-items: center !important;
 }
+
 .footer-text{
   font-size: 0.7rem;
   color: #576165;
 }
+
 .logo {
   width: auto;
   height: 40px;
 }
+
 .flag {
   width: auto;
   height: 30px;

@@ -99,7 +99,9 @@ export default {
       },
       set(value) {
         this.$store.dispatch('filters/updateSearchQuery', value)
-        debounceTrackSiteSearch(() => this.$matomo.trackSiteSearch(value))
+        if (this.matomoActive) {
+          debounceTrackSiteSearch(() => this.$matomo.trackSiteSearch(value))
+        }
       }
     },
     inputSearchIconColor() {
@@ -108,7 +110,8 @@ export default {
         : (this.institutions === null || this.institutions.length) === 0
           ? '#c01252'
           : '#003064'
-    }
+    },
+    matomoActive: function () { return process.env.VUE_APP_MATOMO === 'true' }
   },
   methods: {
     focusInput() {
@@ -176,6 +179,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 #search-form {
   border: 0;
   box-shadow: none !important;
+  letter-spacing: 0.001px;
 }
 
 .input-group-append .btn:not(:last-child) {
