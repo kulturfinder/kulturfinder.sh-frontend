@@ -268,8 +268,9 @@
               {{ $t('about.accessibility.currentStatus') }}
             </p>
             <ul>
-              <li>{{ $t('about.accessibility.faults.0') }}</li>
-              <li>{{ $t('about.accessibility.faults.1') }}</li>
+              <li v-for="(fault, key) in $t('about.accessibility.faults', {}, { returnObjects: true })" :key="key">
+                {{ fault }}
+              </li>
             </ul>
             <p>
               {{ $t('about.accessibility.correcting') }}
@@ -300,8 +301,8 @@
 
 <script>
 import KsHeader from '@/components/layout/Header.vue'
-import ScrollPosition from '@/mixins/scrollposition'
 import i18n from '@/i18n'
+import ScrollPosition from '@/mixins/scrollposition'
 
 export default {
   name: 'About',
