@@ -1,13 +1,19 @@
+const path = require('path')
 module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: `@import "@/styles/variables.scss";`
+        prependData: `@import "@styles/variables.scss";`
       }
     }
   },
   configureWebpack: {
-    devtool: process.env.NODE_ENV !== 'production' ? 'eval-source-map' : ''
+    devtool: process.env.NODE_ENV !== 'production' ? 'eval-source-map' : false,
+    resolve: {
+      alias: {
+        '@styles': path.resolve(__dirname, 'src/styles')
+      }
+    }
   },
   productionSourceMap: process.env.NODE_ENV !== 'production',
   pluginOptions: {

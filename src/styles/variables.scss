@@ -1,4 +1,4 @@
-@import "@/styles/tenant-colors.scss";
+@import "@styles/tenant-colors.scss";
 
 $yellow: #fdf8da; // Light-Yellow
 $yellow-dark: #f8f1c6; // Light-Yellow
@@ -8,7 +8,7 @@ $cyan: #0089ca; // SH Cyan
 $green: #509500; // Used for "Drive-To" in Map-Window
 $white: #fff;
 $gray: #f0f0f0; // Grau
-$gray-dark: #e6e6e6;  // SH Dark Grey
+$gray-dark: #e6e6e6; // SH Dark Grey
 $background: #fcfcfc;
 $gray-very-dark: #333333; // SH Very Dark Grey for Text
 
@@ -30,9 +30,12 @@ $breakpoint-xl: 1200px;
 // set internal breakpoints for b-components
 $grid-breakpoints: (
   xs: $breakpoint-xs,
-  sm: $breakpoint-sm, // phone
-  md: $breakpoint-md, // tabled
-  lg: $breakpoint-lg, // desktop
+  sm: $breakpoint-sm,
+  // phone
+  md: $breakpoint-md,
+  // tabled
+  lg: $breakpoint-lg,
+  // desktop
   xl: $breakpoint-xl // large screens
 );
 
