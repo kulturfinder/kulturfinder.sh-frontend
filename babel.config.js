@@ -6,9 +6,9 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   presets: [
     [
-      '@vue/app',
+      '@vue/babel-preset-app',
       {
-        polyfills: ['es7.object.entries', 'es6.promise']
+        corejs: 3
       }
     ]
   ],
