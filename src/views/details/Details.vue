@@ -1,12 +1,12 @@
 <template>
   <div id="details">
     <vue-headful
-      :title="(institution.name ? institution.name : $t('common.loading')) + ' | ' + $t('SEO.title')"
-      :description="institution.claim + ' - ' + institution.description + ' || ' + $t('SEO.description')"
-      :keywords="$t('SEO.commonKeywords') + ', '+ institution.tags + ', '+ institution.categories"
+      :title="(institution.name ? institution.name : $t('common.loading')) + ' | ' + appName"
+      :description="institution.claim + ' - ' + institution.description + ' || ' + appDescription"
+      :keywords="appKeywords + ', '+ institution.tags + ', '+ institution.categories"
       :lang="`/${$route.params.locale}/`"
       og-locale="de"
-      url="https://kulturfinder.sh"
+      :url="appURL"
     />
     <ks-header>
       <template #center>
@@ -14,7 +14,7 @@
           <img
             height="40px"
             class="logo p-0"
-            src="@/assets/images/logos/kf_logo.png"
+            :src="'/' + tenant + '/img/logos/kf_logo.png'"
             :alt="$t('navbar.logo')"
             role="img"
             data-cy="kulturfinderLogo"
@@ -22,7 +22,7 @@
         </b-nav-item>
       </template>
       <template class="d-flex" #right>
-        <b-button pill class="labeled-button mr-1" @click="onFavoriteClick">
+        <b-button pill class="labeled-button pr-0" @click="onFavoriteClick">
           <icon-base
             :title="$t('navbar.saveAsFavorite')"
             color="#003064"
@@ -100,6 +100,7 @@
                   <b-button
                     id="li-button"
                     class="px-4"
+                    variant="light"
                     :to="`/${$route.params.locale}/institutions/${listType}/details/${actId}/living-images`"
                     :disabled="!livingImagesEnabled"
                   >
@@ -187,8 +188,8 @@
                     <icon-address/>
                   </template>
                   <template #text>
-                    <div class="text-dark">
-                      {{ institution.address.street }}<br>
+                    <div class="text-primary">
+                      <div v-if="institution.address.street">{{ institution.address.street }}<br></div>
                       {{ institution.address.zip }} {{ institution.address.place }}
                     </div>
                   </template>
@@ -275,9 +276,41 @@
               <p v-if="!institution.openingTimes">
                 {{ $t('details.noOpeningHours') }}
               </p>
-
               <div v-else id="opening-hours-container">
+                <!-- Opening Status -->
+                <div v-if="institution.openingTimes.week" id="opening-status">
+                  <b-row>
+                    <b-col cols="12" md="4">
+                      <!-- Institution currently opened -->
+                      <div v-if="getCurrentOpeningState()" id="opened" class="py-2 mt-4 mb-2">
+                        {{ $t('details.currentlyOpened') }}
+                      </div>
+                      <!-- Institution currently closed -->
+                      <div v-if="!getCurrentOpeningState() && getNextOpeningDay() !== false" id="closed" class="py-2 mt-4 mb-2">
+                        {{ $t('details.currentlyClosed') }}
+                      </div>
+                      <!-- Institution always closed -->
+                      <div v-if="getNextOpeningDay() === false && !getCurrentOpeningState()" id="closed" class="py-2 mt-4 mb-2">
+                        {{ $t('details.closed') }}
+                      </div>
+                    </b-col>
+                    <b-col cols="12" md="4" id="nextOpened"
+                           class="pt-2 mb-2 desktop-mt mobile-mt"
+                    >
+                      <!-- Institution currently opened -->
+                      <p v-if="getCurrentOpeningState()">
+                        {{ $t('details.closes') }} {{ $t('details.at') }} {{ getNextClosingTime() | time($i18n.locale) }}
+                      </p>
+                      <!-- Institution currently closed -->
+                      <p v-if="!getCurrentOpeningState() && getNextOpeningDay() !== false">
+                        {{ $t('details.opens') }} {{ $t(`details.${getNextOpeningDay()}`) }}
+                        {{ $t('details.at') }} {{ getNextOpeningTime() | time($i18n.locale) }}
+                      </p>
+                    </b-col>
+                  </b-row>
+                </div>
                 <div id="opening-hours-list" v-if="institution.openingTimes.week">
+                  <!-- Highlights the current day of the week -->
                   <div :class="{'opening-hours-row': true, 'opening-hours-row-active': compareDay(1)}">
                     <div class="opening-hours-day">
                       {{ $t('details.monday') }}
@@ -398,9 +431,7 @@
                   class="info"
                   v-if="institution.openingTimes.description"
                 >
-                  <p v-if="institution.openingTimes.description">
-                    {{ institution.openingTimes.description }}
-                  </p>
+                  <p v-if="institution.openingTimes.description" v-html="institution.openingTimes.description"/>
                 </b-alert>
 
                 <p class="info-text" v-if="institution.openingTimes.week">
@@ -409,21 +440,6 @@
                      href="#"
                   >{{ $t('details.feedbackWrongOpeningHoursHeadline') }}</a>
                 </p>
-              <!--Corona Warning Banner -->
-                <!-- <b-alert
-                  show
-                  variant="warning"
-                  class="warning"
-                >
-                  <b-row>
-                    <b-col class="col-auto pr-0">
-                      <icon-base width="20" height="20">
-                        <icon-warning />
-                      </icon-base>
-                    </b-col>
-                    <b-col>{{ $t('details.coronaWarningText') }}</b-col>
-                  </b-row>
-                </b-alert> -->
               </div>
             </section>
             <hr class="mb-4">
@@ -518,23 +534,23 @@
 </template>
 
 <script>
+import KsCarousel from '@/components/details/Carousel.vue'
+import DigitalServices from '@/components/details/DigitalServices.vue'
+import FeedbackModal from '@/components/details/FeedbackModal.vue'
+import InfoDetail from '@/components/details/InfoDetail.vue'
+import MuseumsCard from '@/components/details/MuseumsCard.vue'
+import NahShLink from '@/components/details/NahShLink.vue'
+import NavigatorShare from '@/components/details/NavigatorShare.vue'
 import SkeletonScreen from '@/components/details/SkeletonScreen.vue'
 import SocialLinks from '@/components/details/SocialLinks.vue'
-import DigitalServices from '@/components/details/DigitalServices.vue'
-import NahShLink from '@/components/details/NahShLink.vue'
+import IconCalender from '@/components/icons/IconCalender.vue'
 import KsHeader from '@/components/layout/Header.vue'
-import InfoDetail from '@/components/details/InfoDetail.vue'
-import KsCarousel from '@/components/details/Carousel.vue'
-import NavigatorShare from '@/components/details/NavigatorShare.vue'
-import FeedbackModal from '@/components/details/FeedbackModal.vue'
-import MuseumsCard from '@/components/details/MuseumsCard.vue'
 import Navigation from '@/mixins/navigation'
 import ScrollPosition from '@/mixins/scrollposition'
-import { mapGetters, mapState } from 'vuex'
-import moment from 'moment'
 import detectRTC from 'detectrtc'
+import moment from 'moment'
 import { lt } from 'semver'
-import IconCalender from '@/components/icons/IconCalender.vue'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Details',
@@ -543,13 +559,20 @@ export default {
       institution: {},
       loading: true,
       dataLocale: 'de',
-      museumsCardEnabled: process.env.VUE_APP_MUSEUMSCARD === 'true'
+      museumsCardEnabled: process.env.VUE_APP_MUSEUMSCARD === 'true',
+      day: new Date().getDay(),
+      // sunday = 0, monday = 1 ... saturday = 6
+      currentTime: new Date().toLocaleTimeString('de-DE', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      })
     }
   },
   props: {
     actId: {
       type: String,
-      default: 'act007'
+      default: process.env.VUE_APP_NEW_API !== 'true' ? 'act007' : '0'
     },
     listType: {
       type: String,
@@ -573,10 +596,10 @@ export default {
     hasSocial() {
       if (!this.institution) return false
       return !!(this.institution.facebook ||
-          this.institution.twitter ||
-          this.institution.instagram ||
-          this.institution.youtube ||
-          this.institution.vimeo)
+        this.institution.twitter ||
+        this.institution.instagram ||
+        this.institution.youtube ||
+        this.institution.vimeo)
     },
     hasDigitalServices() {
       if (!this.institution.apps && !this.institution.digitalServices) return false
@@ -592,8 +615,8 @@ export default {
     },
     isIOSWebAppWrongVersion() {
       // getUserMedia only works as iOS-PWA with iOS 13.4.1 and higher
-      const iOS = !!window.navigator.userAgent.match(/iPad/i) ||
-        !!window.navigator.userAgent.match(/iPhone/i)
+      const iOS = !!RegExp(/iPad/i).exec(window.navigator.userAgent) ||
+        !!RegExp(/iPhone/i).exec(window.navigator.userAgent)
       return iOS &&
         window.matchMedia('(display-mode: standalone)').matches &&
         lt(this.detectRTC.osVersion, '13.4.1')
@@ -606,8 +629,12 @@ export default {
       return this.listType === 'dashboard'
         ? `/${this.$route.params.locale}/institutions/map`
         : `/${this.$route.params.locale}/institutions/${this.listType}`
-    }
-
+    },
+    appURL: function () { return process.env.VUE_APP_URL },
+    appName: function () { return process.env.VUE_APP_NAME },
+    appDescription: function () { return process.env.VUE_APP_DESCRIPTION },
+    appKeywords: function () { return process.env.VUE_APP_KEYWORDS },
+    tenant: function () { return process.env.VUE_APP_TENANT }
   },
   methods: {
     onFavoriteClick: async function () {
@@ -616,8 +643,139 @@ export default {
     compareDay(day) {
       // (sunday = 0, monday = 1 ... saturday = 6)
       return new Date().getDay() === day
-    }
+    },
+    getDayTimes(day) {
+      let openingTimeDay
+      if (day === 1) {
+        openingTimeDay = this.institution.openingTimes.week.mon
+      } else if (day === 2) {
+        openingTimeDay = this.institution.openingTimes.week.tue
+      } else if (day === 3) {
+        openingTimeDay = this.institution.openingTimes.week.wen
+      } else if (day === 4) {
+        openingTimeDay = this.institution.openingTimes.week.thu
+      } else if (day === 5) {
+        openingTimeDay = this.institution.openingTimes.week.fri
+      } else if (day === 6) {
+        openingTimeDay = this.institution.openingTimes.week.sat
+      } else if (day === 0) {
+        openingTimeDay = this.institution.openingTimes.week.sun
+      }
+      return openingTimeDay || null
+    },
 
+    getCurrentOpeningState() {
+      const formattedTime = `T${this.currentTime}`
+      const openingTimes = this.getDayTimes(new Date().getDay())
+
+      if (
+        openingTimes && openingTimes.first &&
+        formattedTime > openingTimes.first.timeStart &&
+        formattedTime < openingTimes.first.timeEnd
+      ) {
+        return true
+      } else {
+        return !!(openingTimes && openingTimes.second &&
+          formattedTime > openingTimes.second.timeStart &&
+          formattedTime < openingTimes.second.timeEnd)
+      }
+    },
+
+    getNextClosingTime() {
+      const formattedTime = `T${this.currentTime}`
+      const openingTimes = this.getDayTimes(new Date().getDay())
+      let closingTime
+
+      if (formattedTime < openingTimes.first.timeEnd) {
+        closingTime = openingTimes.first.timeEnd
+      } else if (formattedTime > openingTimes.second.timeStart) {
+        closingTime = openingTimes.second.timeEnd
+      }
+      return closingTime
+    },
+
+    // returns true if day has openingTimes
+    getOpenDayState(day) {
+      const openingTimes = this.getDayTimes(day)
+
+      if (
+        openingTimes &&
+        openingTimes.first &&
+        openingTimes.first.timeStart === '' &&
+        openingTimes.first.timeEnd === '' &&
+        openingTimes.second &&
+        openingTimes.second.timeStart === '' &&
+        openingTimes.second.timeEnd === ''
+      ) {
+        return false
+      }
+
+      return !(openingTimes === undefined || openingTimes === null)
+    },
+
+    getNextOpeningTime() {
+      const formattedCurrentTime = `T${this.currentTime}`
+      let openingTimes = this.getDayTimes(new Date().getDay())
+      const nextDay = this.day + 1
+
+      // institution is closed but will open the same day
+      if (openingTimes && formattedCurrentTime < openingTimes.first.timeStart) {
+        return openingTimes.first.timeStart
+      }
+
+      // institution is closed, has been open that day and will open again the same day
+      if (openingTimes && openingTimes.second &&
+          formattedCurrentTime < openingTimes.second.timeStart &&
+          formattedCurrentTime > openingTimes.first.timeEnd) {
+        return openingTimes.second.timeStart
+      }
+
+      // institution is closed and won't open the same day
+      // find next day with opening times
+      for (let i = nextDay; i !== this.day; i++) {
+        if (i === 7) {
+          // sunday
+          i = 0
+        }
+        if (this.getOpenDayState(i) === true && this.getCurrentOpeningState() === false) {
+          return this.getDayTimes(i).first.timeStart
+        }
+      } return openingTimes.first.timeStart
+    },
+
+    getNextOpeningDay() {
+      const formattedCurrentTime = `T${this.currentTime}`
+      let openingTimes = this.getDayTimes(new Date().getDay())
+      let openingDayNum = new Date().getDay()
+      const nextDay = this.day + 1
+
+      // institution is closed but will open the same day
+      if (openingTimes && formattedCurrentTime < openingTimes.first.timeStart) {
+        return this.getDayName(openingDayNum)
+      }
+
+      // institution is closed, has been open that day and will open again the same day
+      if (openingTimes && openingTimes.second &&
+        formattedCurrentTime < openingTimes.second.timeStart &&
+        formattedCurrentTime > openingTimes.first.timeEnd) {
+        return this.getDayName(openingDayNum)
+      }
+
+      for (let i = nextDay; i !== this.day; i++) {
+        if (i === 7) {
+          // sunday
+          i = 0
+        }
+        if (this.getOpenDayState(i) === true && this.getCurrentOpeningState() === false) {
+          return this.getDayName(i)
+        }
+      } return false
+    },
+
+    getDayName(dayIndex) {
+      const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+      return days[dayIndex]
+    }
   },
   filters: {
     time(value, locale) {
@@ -658,7 +816,7 @@ export default {
     // get details data from vuex store
     this.loading = true
     this.institution = {}
-    this.$store.dispatch('institutions/fetchDetails', { id: this.actId, locale: this.$i18n.locale })
+    this.$store.dispatch('institutions/fetchDetails', { id: this.actId })
       .then((institution, _) => {
         if (institution) this.institution = institution
         if (institution && institution.hasDetails === false) this.$bvModal.show('no-network-modal')
@@ -667,7 +825,7 @@ export default {
     this.dataLocale = this.$i18n.locale
   },
   updated() {
-    // check if banner available and wait until is has finished loading to remove skeleton screen
+    // check if banner available and wait until it has finished loading to remove skeleton screen
     if (!this.institution.name || !this.loading) return
     const banner = document.querySelector('.carousel-image.banner-0')
     if (banner && this.institution.images.length) {
@@ -683,6 +841,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.logo {
+  @media (max-width: $breakpoint-logo-xs) {
+    width: 120px;
+    height: auto;
+  }
+  @media (min-width: $breakpoint-logo-xs) {
+    width: auto;
+    height: 40px;
+  }
+}
+
 input[type=submit] {
   font-size: inherit;
 }
@@ -691,10 +861,10 @@ input[type=submit] {
   background-color: $gray;
 }
 #claim {
-    font-size: 1.1rem;
-    font-weight: 400;
-    font-style: italic;
-    color: $primary;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: $primary;
 }
 
 .text-padding{
@@ -718,7 +888,27 @@ input[type=submit] {
   color: #869094;
 }
 #opening-hours-container{
-color: $dark !important;
+  color: $dark !important;
+}
+#opening-status{
+  font-size: 1.0rem;
+  font-weight: 405;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 13px;
+}
+#opened{
+  background-color: rgba(151 247 151 / 0.5);
+  border-radius: 0.5rem;
+}
+#closed{
+  background-color: rgba(237 133 133 / 0.5);
+  border-radius: 0.5rem;
+}
+#nextOpened{
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: left;
 }
 #opening-hours-list {
   margin-bottom: 1rem;
@@ -799,4 +989,18 @@ color: $dark !important;
     width: 100%;
   }
 }
+
+@media (min-width: 500px) { /* Für Desktop */
+  .desktop-mt {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 767px) { /* Für Mobilgeräte */
+  .mobile-mt {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+}
+
 </style>

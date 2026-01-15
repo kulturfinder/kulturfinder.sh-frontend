@@ -21,14 +21,21 @@ module.exports = {
   devServer: {
     https: false,
     port: 8080,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: 'https://kulturfinder.bremen.de/',
+        changeOrigin: true
+      }
+    }
   },
   pwa: {
+    name: process.env.VUE_APP_NAME,
+    description: process.env.VUE_APP_DESCRIPTION,
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
       cleanupOutdatedCaches: true,
-      navigateFallback: '/index.html',
-      exclude: [],
+      ...(process.env.VUE_APP_TENANT !== 'hb' && { navigateFallback: '/index.html' }),
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/museumsbilder\.digicult-verbund\.de\//,
@@ -55,79 +62,96 @@ module.exports = {
               statuses: [0, 200]
             }
           }
+        },
+        {
+          urlPattern: /^https:\/\/kulturfinder\.bremen\.sh\/api/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'data',
+            expiration: {
+              maxAgeSeconds: 86400
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
         }
       ]
     },
-    name: 'Kulturfinder.sh',
     themeColor: '#ffffff',
     msTileColor: '#ffffff',
     appleMobileWebAppStatusBarStyle: 'white',
     iconPaths: {
-      favicon32: 'favicon.png',
-      favicon16: 'favicon.png',
-      appleTouchIcon: 'img/icons/apple-icon-152x152.png',
-      maskIcon: 'img/icons/app-icon-152x152.png',
-      msTileImage: 'img/icons/app-icon-152x152.png'
+      favicon32: process.env.VUE_APP_TENANT + '/favicon.svg',
+      favicon16: process.env.VUE_APP_TENANT + '/favicon.svg',
+      appleTouchIcon: process.env.VUE_APP_TENANT + '/img/icons/apple-icon-152x152.png',
+      maskIcon: process.env.VUE_APP_TENANT + '/img/icons/app-icon-152x152.png',
+      msTileImage: process.env.VUE_APP_TENANT + '/img/icons/app-icon-152x152.png'
     },
     manifestOptions: {
-      name: 'kulturfinder.sh',
+      name: process.env.VUE_APP_NAME,
       short_name: 'kulturfinder',
+      description: process.env.VUE_APP_DESCRIPTION,
       icons: [
         {
-          src: 'img/icons/app-icon-48x48.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-48x48.png',
           type: 'image/png',
           sizes: '48x48'
         },
         {
-          src: 'img/icons/app-icon-96x96.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-96x96.png',
           type: 'image/png',
           sizes: '96x96'
         },
         {
-          src: 'img/icons/app-icon-128x128.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-128x128.png',
           type: 'image/png',
           sizes: '128x128'
         },
         {
-          src: 'img/icons/app-icon-144x144.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-144x144.png',
           type: 'image/png',
           sizes: '144x144'
         },
         {
-          src: 'img/icons/app-icon-152x152.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-152x152.png',
           type: 'image/png',
           sizes: '152x152'
         },
         {
-          src: 'img/icons/app-icon-192x192.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-192x192.png',
           type: 'image/png',
           sizes: '192x192',
           purpose: 'maskable'
         },
         {
-          src: 'img/icons/app-icon-256x256.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-256x256.png',
           type: 'image/png',
           sizes: '256x256'
         },
         {
-          src: 'img/icons/app-icon-315x315.png',
-          type: 'image/png',
-          sizes: '315x315'
-        },
-        {
-          src: 'img/icons/app-icon-384x384.png',
-          type: 'image/png',
-          sizes: '384x384'
-        },
-        {
-          src: 'img/icons/app-icon-512x512.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-512x512.png',
           type: 'image/png',
           sizes: '512x512'
         },
         {
-          src: 'img/icons/app-icon-1024x1024.png',
+          src: process.env.VUE_APP_TENANT + '/img/icons/app-icon-1024x1024.png',
           type: 'image/png',
           sizes: '1024x1024'
+        }
+      ],
+      "screenshots": [
+        {
+          "src": "/img/screenshots/home-mobile.png",
+          "sizes": "360x640",
+          "type": "image/png",
+          "form_factor": "narrow"  // for mobile
+        },
+        {
+          "src": "/img/screenshots/home-desktop.png",
+          "sizes": "1280x720",
+          "type": "image/png",
+          "form_factor": "wide"  // for desktop
         }
       ],
       start_url: '/',
@@ -135,7 +159,6 @@ module.exports = {
       orientation: 'portrait-primary',
       background_color: '#ffffff',
       theme_color: '#ffffff',
-      description: '',
       dir: 'ltr',
       lang: 'de-DE'
     }
