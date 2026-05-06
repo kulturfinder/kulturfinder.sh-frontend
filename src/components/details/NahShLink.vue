@@ -44,7 +44,7 @@ export default {
       if (process.env.VUE_APP_TENANT === 'hb') {
         return 'https://www.vbn.de/fahrplaner'
       }
-      return `https://nah.sh.hafas.de/bin/query.exe/dn?SID=${this.nahShSID}&ZID=${this.nahShZID}&date=${this.nahShDate}&time=${this.nahShTime}&timesel=depart&externalCall=yes&start=yes`
+      return `https://www.nah.sh/de/fahrplan/planer/?language=de_DE&P=TP&SID=${this.nahShSID}&ZID=${this.nahShZID}&start=yes&widget=1.0.0&`
     },
     nahShSID() {
       if (!this.startPos) return ''
