@@ -187,7 +187,7 @@
             </icon-base>
             {{ $t("common.downloadApp") }}
           </b-btn>
-          <b-btn
+          <!--pb-3b-btn
             variant="link"
             v-b-modal.sign-language-modal
             class="footer-text px-2 pt-0 pb-3 text-decoration-none"
@@ -202,7 +202,7 @@
             </icon-base>
             {{ $t("dashboard.signLanguage") }}
           </b-btn>
-          <sign-language-modal/>
+          <sign-language-modal/-->
           <router-link
             :to="`/${$route.params.locale}/about`"
             class="footer-text px-2 pt-0 pb-3"
@@ -234,7 +234,7 @@ import ScrollPosition from '@/mixins/scrollposition'
 import detectRTC from 'detectrtc'
 import { mapGetters } from 'vuex'
 import LocaleChanger from '../components/dashboard/LocaleChanger'
-import SignLanguageModal from '../components/dashboard/SignLanguageModal.vue'
+// import SignLanguageModal from '../components/dashboard/SignLanguageModal.vue'
 
 export default {
   name: 'Dashboard',
@@ -255,8 +255,8 @@ export default {
     KsCard,
     KsHeader,
     SearchBar,
-    KsList,
-    SignLanguageModal
+    KsList
+    // SignLanguageModal
   },
   mixins: [ScrollPosition],
   computed: {

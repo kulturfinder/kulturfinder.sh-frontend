@@ -83,7 +83,7 @@ import Vue from 'vue'
  */
 
 const TIMEOUT = 15000
-const URL = '/api'
+const URL = 'https://kulturfinder.bremen.de/api'
 
 function latLngToPos(latitude, longitude) {
   return {
