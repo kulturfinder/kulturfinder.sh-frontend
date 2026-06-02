@@ -28,7 +28,7 @@
         <b-container class="text-center">
           <img
             id="museumscard"
-            src="@/assets/images/logos/2025_museumscard_logo_datum_lilabeige.png"
+            src="@/assets/images/logos/2026_museumscard_logo_datum_blaubeige.png"
             class="museumscard-logo"
             alt="Museumscard"
             data-cy="museumsCardLogo"
@@ -42,7 +42,7 @@
                   class="ks-card"
                   :href="'https://www.meine-museumscard.de'" target="_blank"
                   :text="$t('museumscard.tickets')"
-                  :image-source="require(`@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png`)"
+                  :image-source="require(`@/assets/images/logos/2026_museumscard_logo_jubiläum_blaubeige.png`)"
                   :museumscard="true"
                   data-cy="museumsCardKachel"
                 />
@@ -88,9 +88,9 @@
 </template>
 
 <script>
+import KsCard from '@/components/dashboard/Card.vue'
 import KsHeader from '@/components/layout/Header.vue'
 import ScrollPosition from '@/mixins/scrollposition'
-import KsCard from '@/components/dashboard/Card.vue'
 
 export default {
   name: 'MuseumsCard',

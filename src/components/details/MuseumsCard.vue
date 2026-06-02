@@ -11,7 +11,7 @@
         {{ $t('details.museumscard.text2') }}<br>
       </b-col>
       <img
-        src="@/assets/images/logos/2025_museumscard_logo_jahr_lilabeige.png"
+        src="@/assets/images/logos/2026_museumscard_logo_jubiläum_blaubeige.png"
         height="103px"
         class="museumscard-logo alert-success"
         alt="Museumscard"
