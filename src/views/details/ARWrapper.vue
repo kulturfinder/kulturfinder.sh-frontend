@@ -53,9 +53,23 @@ export default {
       this.$router.push(`/${this.$route.params.locale}/institutions/${this.listType}/details/${this.actId}#living-images-info`)
     }
 
+    const dataportToActMap = {
+      '550': 'act0002156',
+      // '502': 'act001653',
+      '568': 'act001696',
+      '399': 'act001621',
+      '230': 'act0002152',
+      '232': 'act001610',
+      '137': 'act001651',
+      '24': 'act0002598',
+      '531': 'act0002644'
+    }
+
     const actIdRegex = /^act[0-9]{6,7}$/
     let id = this.id
-    if (id && !this.id.match(actIdRegex)) {
+    if (dataportToActMap[id]) {
+      id = dataportToActMap[id]
+    } else if (id && !this.id.match(actIdRegex)) {
       const res = this.$store.getters['institutions/getActIdByTitle'](id)
       if (!res) {
         await this.$store.dispatch('institutions/fetchDetails', { id: this.id })

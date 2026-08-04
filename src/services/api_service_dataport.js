@@ -84,6 +84,26 @@ import Vue from 'vue'
 
 const TIMEOUT = 15000
 const URL = 'https://kulturfinder.bremen.de/api'
+const LivingImagesIds = [
+  '550', 'act0002156', // Theater Kiel - Schauspielhaus
+  /* '502', 'act001653', // Schleswig-Holsteinische Landesbibliothek */
+  '568', 'act001696', // Weihnachtshaus
+  '399', 'act001621', // Mediendom der Fachhochschule Kiel
+  '230', 'act0002152', // Bunker-D
+  '232', 'act001610', // Computermuseum der Fachhochschule Kiel
+  '137', 'act001651', // Theodor-Storm-Museum
+  '24', 'act0002598', // Focke Museum
+  'act0002741', // Ozeaneum
+  '531', 'act0002644' // Staldgarden Museum Kolding
+]
+
+function isLivingImage(id, elementHasLivingImages) {
+  if (elementHasLivingImages === true) return true
+  if (!id) return false
+  const idStr = id.toString()
+  const cleanId = idStr.replace(/^act0*/, '')
+  return LivingImagesIds.some(liId => liId === idStr || liId.replace(/^act0*/, '') === cleanId)
+}
 
 function latLngToPos(latitude, longitude) {
   return {
@@ -111,7 +131,7 @@ function migrateCommonValues(element) {
   }
   institution.street = element.address
   institution.place = element.city
-  institution.hasLivingImages = element.hasLivingImages
+  institution.hasLivingImages = isLivingImage(element.id, element.hasLivingImages)
 
   if (element.latitude && element.longitude) {
     Object.assign(institution, latLngToPos(element.latitude, element.longitude))
@@ -120,7 +140,10 @@ function migrateCommonValues(element) {
   institution.categories = [...new Set(element.categories.map(category => category.name))]
     .sort((a, b) => { return a - b })
   institution.tags = [...element.tags.map(tag => tag.name)]
-    .sort((a, b) => { return a - b })
+  if (institution.hasLivingImages && !institution.tags.includes('Living Image')) {
+    institution.tags.push('Living Image')
+  }
+  institution.tags.sort((a, b) => { return a - b })
 
   if (!institution.audio) institution.audio = []
   if (!institution.images) institution.images = []
