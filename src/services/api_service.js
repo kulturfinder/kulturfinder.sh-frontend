@@ -8,7 +8,7 @@ const TIMEOUT = 15000
 const URL = 'https://kultursphaere.sh/corsproxy.php?url=http://xtree-actor-api.digicult-verbund.de'
 const LivingImagesIds = [
   'act0002156', // Schauspielhaus
-  /* 'act001653',  // Landesbibliothek SH */
+  /* 'act001653', // Landesbibliothek SH */
   'act001696', // Weihachtshaus
   'act001621', // Mediendom
   'act0002152', // Bunker-D
