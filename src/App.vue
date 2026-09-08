@@ -82,24 +82,9 @@ export default {
         console.log('RELOAD_SITE')
         window.location.reload(true)
       })
-      wb.addEventListener('waiting', (event) => {
-        this.$bvModal.msgBoxOk(this.$i18n.t('updateModal.newPwaVersionText'), {
-          title: '🎉 ' + this.$i18n.t('updateModal.newPwaVersionTitle'),
-          size: 'sm',
-          buttonSize: 'sm',
-          headerClass: 'p-2 border-bottom-0',
-          footerClass: 'p-2 border-top-0',
-          centered: true,
-          okVariant: 'success'
-        })
-          .then(value => {
-            console.log('START_SKIPPING')
-            wb.messageSW({ type: 'SKIP_WAITING' })
-            console.log('SKIPPED')
-          })
-          .catch(err => {
-            console.log('ERROR', err)
-          })
+      wb.addEventListener('waiting', () => {
+        console.log('AUTO_UPDATE: SKIPPING_WAITING')
+        wb.messageSW({ type: 'SKIP_WAITING' })
       })
       wb.register()
       console.log('EVERYTHING_HOOKED')
