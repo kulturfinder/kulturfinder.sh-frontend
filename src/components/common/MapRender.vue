@@ -178,12 +178,13 @@ export default {
   },
   computed: {
     tileProviders() {
+      const cartoApiKey = process.env.VUE_APP_CARTO_API_KEY || 'cb1_2zwo_1_a62256724c009906c1f00b5e'
       return [
         {
           name: 'CARTO',
           visible: true,
           attribution: '&copy; <a target="_blank" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a target="_blank" href="https://carto.com/attributions">CARTO</a>',
-          url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+          url: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${cartoApiKey}`
         },
         {
           name: 'OSM',
