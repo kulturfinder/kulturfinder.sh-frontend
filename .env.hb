@@ -13,4 +13,4 @@ VUE_APP_DESCRIPTION=Der kulturfinder.bremen.de ist eine App, die es den Nutzer:i
 VUE_APP_KEYWORDS=Kulturfinder, Kultur, App, Bremen, Bremerhaven, Digitalisierung, Schietwetter, Kulturinstitution
 VUE_APP_URL=https://kulturfinder.bremen.de
 VUE_APP_EMAIL=kulturfinder@dataport.de
- 
+VUE_APP_CARTO_API_KEY=cb1_2zwo_1_a62256724c009906c1f00b5e
