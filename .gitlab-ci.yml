@@ -8,7 +8,7 @@ cache:
   paths:
     - .npm
 
-build:
+build-sh:
   image: node:lts
   stage: build
   artifacts:
@@ -18,14 +18,93 @@ build:
     - npm ci --cache .npm --prefer-offline --legacy-peer-deps
     - npm run build-sh
 
-lint:
+build-hb:
+  stage: build
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  needs: []
+  artifacts:
+    paths:
+      - dist
+  before_script:
+    - curl -fL https://install-cli.jfrog.io | sh
+    - jf config add --url $ARTIFACTORY_URL --user "$ARTIFACTORY_USER" --password "$ARTIFACTORY_PASSWORD" #--access-token $ARTIFACTORY_TOKEN
+    - jf npmc --repo-resolve $ARTIFACTORY_NPM_COMMON
+  script:
+    - jf config show
+    - jf rt ping
+    - echo "$tenant_colors" > src/styles/tenant-colors.scss
+    - jf npm ci --cache=.npm --prefer-offline --legacy-peer-deps --verbose
+    - npm run build-hb
+
+lint-hb:
+  stage: test
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  needs: []
+  before_script:
+    - curl -fL https://install-cli.jfrog.io | sh
+    - jf config add --url $ARTIFACTORY_URL --user "$ARTIFACTORY_USER" --password "$ARTIFACTORY_PASSWORD" #--access-token $ARTIFACTORY_TOKEN
+    - jf npmc --repo-resolve $ARTIFACTORY_NPM_COMMON
+  script:
+    - jf npm ci --cache=.npm --prefer-offline --legacy-peer-deps
+    - npm run lint
+
+audit-hb:
+  stage: test
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  allow_failure: true
+  needs: []
+  before_script:
+    - curl -fL https://install-cli.jfrog.io | sh
+    - jf config add --url $ARTIFACTORY_URL --user "$ARTIFACTORY_USER" --password "$ARTIFACTORY_PASSWORD" #--access-token $ARTIFACTORY_TOKEN
+    - jf npmc --repo-resolve $ARTIFACTORY_NPM_COMMON
+  script:
+    - jf npm ci --cache=.npm --prefer-offline --legacy-peer-deps
+    - npm audit --production
+
+deploy-test-hb:
+  stage: deploy
+  needs: [audit, build]
+  dependencies:
+    - build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"
+      when: always
+    - when: manual
+  environment:
+    name: test
+    url: https://kulturfindertest.dsecurecloud.de
+  before_script:
+    - apt-get update -y
+    - apt-get install sshpass -y
+  script:
+    - sshpass -p $DEPLOY_PASSWORD ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $DEPLOY_USERNAME@$DEPLOY_ADDRESS "cd $DEPLOY_TEST_DIRECTORY && pwd && ls && rm -rf *"
+    - sshpass -p $DEPLOY_PASSWORD scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r dist/* $DEPLOY_USERNAME@$DEPLOY_ADDRESS:$DEPLOY_TEST_DIRECTORY/
+
+deploy-prod-hb:
+  stage: deploy
+  needs: [build, deploy-test]
+  dependencies:
+    - build
+  rules:
+    - when: manual
+  environment:
+    name: prod
+    url: https://kulturfinder.bremen.de
+  before_script:
+    - apt-get update -y
+    - apt-get install sshpass -y
+  script:
+    - sshpass -p $DEPLOY_PASSWORD ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $DEPLOY_USERNAME@$DEPLOY_ADDRESS "cd $DEPLOY_PROD_DIRECTORY && pwd && ls && rm -rf *"
+    - sshpass -p "$DEPLOY_PASSWORD" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r dist/* $DEPLOY_USERNAME@$DEPLOY_ADDRESS:$DEPLOY_PROD_DIRECTORY/
+
+lint-sh:
   image: node:lts
   stage: test
   script:
     - npm ci --cache .npm --prefer-offline --legacy-peer-deps
     - npm run lint
 
-audit:
+audit-sh:
   image: node:lts
   stage: test
   allow_failure: true
@@ -33,7 +112,7 @@ audit:
     - npm ci --cache .npm --prefer-offline --legacy-peer-deps
     - npm audit --production
 
-deploy_ftp:
+deploy_ftp-sh:
   image: mwienk/docker-lftp:latest
   stage: deploy
   only:
