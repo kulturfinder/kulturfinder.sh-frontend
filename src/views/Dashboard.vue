@@ -94,7 +94,7 @@
               v-if="tenant === 'sh'"
               :route="`/${$route.params.locale}/institutions/map?isFavorite=false`"
               :text="$t('common.map')"
-              icon="IconBremenBremerhafen"
+              icon="IconMap"
               data-cy="mapCard"
             />
             <ks-card
